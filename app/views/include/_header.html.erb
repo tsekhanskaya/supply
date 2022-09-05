@@ -1,0 +1,32 @@
+<header class="p-3 bg-dark text-white">
+  <div class="container-fluid">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="btn btn-active-light-dark text-white"><strong>Главная</strong></a></li>
+        <%= link_to "Продукты", products_path, :class => 'btn btn-active-light-dark text-secondary' %>
+        <%= link_to "Поставщики", products_path, :class => 'btn btn-active-light-dark text-secondary' %>
+        <%= link_to "Рестораны", products_path, :class => 'btn btn-active-light-dark text-secondary' %>
+        <li><a href="#" class="btn btn-active-light-dark text-secondary">About</a></li>
+      </ul>
+
+      <div class="text-end">
+        <div class="navbar-text float-right">
+          <%# if user_signed_in? %>
+<!--            Вы вошли как <strong><%#= current_user.email %></strong>-->
+            <%#= link_to "Редактирование аккаунта", products_path, :class => 'btn btn-active-light-dark text-secondary' %>
+            <%#= link_to "Корзина", orders_path, :class => 'btn btn-warning text-black' %>
+            <%#= link_to "Выйти", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light me-2" %>
+          <%# else %>
+            <%#= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-warning text-black'  %>
+            <%#= link_to "Войти", new_user_session_path, :class => 'btn btn-outline-light me-2'%>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
