@@ -1,12 +1,13 @@
 <head>
   <style>
 
-      #footer {
+      .footer {
           position:fixed;
           left:0px;
-          bottom:0px;
+          bottom:100px;
           height:30px;
           width:100%;
+          margin-bottom: 24px;
       }
   </style>
 </head>
@@ -17,7 +18,7 @@
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Главная</a></li>
         <li><%= link_to "Продукты", products_path, :class => 'nav-link px-2 text-muted' %></li>
-        <li><%= link_to "Поставщики", products_path, :class => 'nav-link px-2 text-muted' %></li>
+        <li><%= link_to "Поставщики", brands_path, :class => 'nav-link px-2 text-muted' %></li>
         <li><%= link_to "Рестораны", products_path, :class => 'nav-link px-2 text-muted' %></li>
         <li><%= link_to "About", products_path, :class => 'nav-link px-2 text-muted' %></li>
       </ul>

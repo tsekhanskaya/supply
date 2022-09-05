@@ -17,7 +17,7 @@ class BrandsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create brand" do
     assert_difference("Brand.count") do
-      post brands_url, params: { brand: { address: @brand.address, description: @brand.description, title: @brand.title } }
+      post brands_url, params: { brand: { address: @brand.address, description: @brand.description, img: @brand.img, title: @brand.title } }
     end
 
     assert_redirected_to brand_url(Brand.last)
@@ -34,7 +34,7 @@ class BrandsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update brand" do
-    patch brand_url(@brand), params: { brand: { address: @brand.address, description: @brand.description, title: @brand.title } }
+    patch brand_url(@brand), params: { brand: { address: @brand.address, description: @brand.description, img: @brand.img, title: @brand.title } }
     assert_redirected_to brand_url(@brand)
   end
 

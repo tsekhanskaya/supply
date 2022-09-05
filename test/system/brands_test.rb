@@ -16,6 +16,7 @@ class BrandsTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @brand.address
     fill_in "Description", with: @brand.description
+    fill_in "Img", with: @brand.img
     fill_in "Title", with: @brand.title
     click_on "Create Brand"
 
@@ -29,6 +30,7 @@ class BrandsTest < ApplicationSystemTestCase
 
     fill_in "Address", with: @brand.address
     fill_in "Description", with: @brand.description
+    fill_in "Img", with: @brand.img
     fill_in "Title", with: @brand.title
     click_on "Update Brand"
 

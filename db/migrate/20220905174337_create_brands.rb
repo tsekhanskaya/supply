@@ -4,6 +4,7 @@ class CreateBrands < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.string :address
+      t.string :img, default: 'no_image.jpg'
 
       t.timestamps
     end
