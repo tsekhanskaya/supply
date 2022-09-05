@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :brand_id, style: "display: block" %>
-    <%= form.number_field :brand_id %>
+    <%= form.select :brand_id, Brand.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
   </div>
 
   <div>
