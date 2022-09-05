@@ -7,6 +7,7 @@ ruby '3.0.3'
 
 gem 'bootsnap', require: false
 gem 'bootstrap-sass'
+gem 'devise'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'

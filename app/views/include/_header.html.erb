@@ -15,15 +15,15 @@
 
       <div class="text-end">
         <div class="navbar-text float-right">
-          <%# if user_signed_in? %>
-<!--            Вы вошли как <strong><%#= current_user.email %></strong>-->
-            <%#= link_to "Редактирование аккаунта", products_path, :class => 'btn btn-active-light-dark text-secondary' %>
-            <%#= link_to "Корзина", orders_path, :class => 'btn btn-warning text-black' %>
-            <%#= link_to "Выйти", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light me-2" %>
-          <%# else %>
-            <%#= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-warning text-black'  %>
-            <%#= link_to "Войти", new_user_session_path, :class => 'btn btn-outline-light me-2'%>
-          <%# end %>
+          <% if user_signed_in? %>
+            Вы вошли как <strong><%= current_user.email %></strong>
+            <%= link_to "Редактирование аккаунта", products_path, :class => 'btn btn-active-light-dark text-secondary' %>
+            <%= link_to "Корзина", products_path, :class => 'btn btn-warning text-black' %>
+            <%= link_to "Выйти", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light me-2" %>
+          <% else %>
+            <%= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-warning text-black'  %>
+            <%= link_to "Войти", new_user_session_path, :class => 'btn btn-outline-light me-2'%>
+          <% end %>
         </div>
       </div>
     </div>
