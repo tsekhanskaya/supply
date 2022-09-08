@@ -1,7 +1,7 @@
 <div id="<%= dom_id order %>">
   <p>
     <strong>Product:</strong>
-    <%= order.product_id %>
+    <%= order.product.title %>
   </p>
 
   <p>
@@ -11,12 +11,12 @@
 
   <p>
     <strong>Restaurant:</strong>
-    <%= order.restaurant_id %>
+    <%= order.restaurant.title %>
   </p>
 
   <p>
     <strong>Status:</strong>
-    <%= order.status_id %>
+    <%= OrderStatus.find(order.status_id).status %>
   </p>
 
 </div>

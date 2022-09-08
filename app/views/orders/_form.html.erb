@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :product_id, style: "display: block" %>
-    <%= form.number_field :product_id %>
+    <%= form.select :product_id, Product.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
   </div>
 
   <div>
@@ -23,12 +23,13 @@
 
   <div>
     <%= form.label :restaurant_id, style: "display: block" %>
-    <%= form.number_field :restaurant_id %>
+    <%= form.select :restaurant_id, Restaurant.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
   </div>
 
   <div>
     <%= form.label :status_id, style: "display: block" %>
-    <%= form.number_field :status_id %>
+    <%= OrderStatus.find(order.status_id).status %>
+    <%#= form.number_field :status_id %>
   </div>
 
   <div>

@@ -1,47 +1,49 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class RestaurantsTest < ApplicationSystemTestCase
   setup do
     @restaurant = restaurants(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit restaurants_url
-    assert_selector "h1", text: "Restaurants"
+    assert_selector 'h1', text: 'Restaurants'
   end
 
-  test "should create restaurant" do
+  test 'should create restaurant' do
     visit restaurants_url
-    click_on "New restaurant"
+    click_on 'New restaurant'
 
-    fill_in "Address", with: @restaurant.address
-    fill_in "Description", with: @restaurant.description
-    fill_in "Img", with: @restaurant.img
-    fill_in "Title", with: @restaurant.title
-    click_on "Create Restaurant"
+    fill_in 'Address', with: @restaurant.address
+    fill_in 'Description', with: @restaurant.description
+    fill_in 'Img', with: @restaurant.img
+    fill_in 'Title', with: @restaurant.title
+    click_on 'Create Restaurant'
 
-    assert_text "Restaurant was successfully created"
-    click_on "Back"
+    assert_text 'Restaurant was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Restaurant" do
+  test 'should update Restaurant' do
     visit restaurant_url(@restaurant)
-    click_on "Edit this restaurant", match: :first
+    click_on 'Edit this restaurant', match: :first
 
-    fill_in "Address", with: @restaurant.address
-    fill_in "Description", with: @restaurant.description
-    fill_in "Img", with: @restaurant.img
-    fill_in "Title", with: @restaurant.title
-    click_on "Update Restaurant"
+    fill_in 'Address', with: @restaurant.address
+    fill_in 'Description', with: @restaurant.description
+    fill_in 'Img', with: @restaurant.img
+    fill_in 'Title', with: @restaurant.title
+    click_on 'Update Restaurant'
 
-    assert_text "Restaurant was successfully updated"
-    click_on "Back"
+    assert_text 'Restaurant was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Restaurant" do
+  test 'should destroy Restaurant' do
     visit restaurant_url(@restaurant)
-    click_on "Destroy this restaurant", match: :first
+    click_on 'Destroy this restaurant', match: :first
 
-    assert_text "Restaurant was successfully destroyed"
+    assert_text 'Restaurant was successfully destroyed'
   end
 end

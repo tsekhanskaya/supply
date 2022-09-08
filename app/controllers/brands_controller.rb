@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BrandsController < ApplicationController
-  before_action :set_brand, only: %i[ show edit update destroy ]
+  before_action :set_brand, only: %i[show edit update destroy]
 
   # GET /brands or /brands.json
   def index
@@ -7,8 +9,7 @@ class BrandsController < ApplicationController
   end
 
   # GET /brands/1 or /brands/1.json
-  def show
-  end
+  def show; end
 
   # GET /brands/new
   def new
@@ -16,8 +17,7 @@ class BrandsController < ApplicationController
   end
 
   # GET /brands/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /brands or /brands.json
   def create
@@ -25,7 +25,7 @@ class BrandsController < ApplicationController
 
     respond_to do |format|
       if @brand.save
-        format.html { redirect_to brand_url(@brand), notice: "Brand was successfully created." }
+        format.html { redirect_to brand_url(@brand), notice: 'Brand was successfully created.' }
         format.json { render :show, status: :created, location: @brand }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BrandsController < ApplicationController
   def update
     respond_to do |format|
       if @brand.update(brand_params)
-        format.html { redirect_to brand_url(@brand), notice: "Brand was successfully updated." }
+        format.html { redirect_to brand_url(@brand), notice: 'Brand was successfully updated.' }
         format.json { render :show, status: :ok, location: @brand }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class BrandsController < ApplicationController
     @brand.destroy
 
     respond_to do |format|
-      format.html { redirect_to brands_url, notice: "Brand was successfully destroyed." }
+      format.html { redirect_to brands_url, notice: 'Brand was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_brand
-      @brand = Brand.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def brand_params
-      params.require(:brand).permit(:title, :description, :address, :img)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_brand
+    @brand = Brand.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def brand_params
+    params.require(:brand).permit(:title, :description, :address, :img)
+  end
 end
