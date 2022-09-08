@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :orders
   resources :restaurants
   resources :brands
   devise_for :users
