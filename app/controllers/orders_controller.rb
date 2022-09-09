@@ -20,18 +20,34 @@ class OrdersController < ApplicationController
   def edit; end
 
   # POST /orders or /orders.json
-  def create
-    @order = Order.new(order_params)
+  # def create
+  #   @order = Order.new(order_params)
+  #
+  #   respond_to do |format|
+  #     if @order.save
+  #       format.html { redirect_to order_url(@order), notice: 'Order was successfully created.' }
+  #       format.json { render :show, status: :created, location: @order }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @order.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to order_url(@order), notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+  def create
+    chosen_product = Product.find(params[:product_id])
+    order = @order
+
+    if order.products.include?(chosen_product)
+      @order = order.find_by(:product_id => chosen_product)
+      @order.quantity += 1
+    else
+      @order = Order.new
+      @order = chosen_product
     end
+
+    @order.save
+    redirect_to order_path(order)
   end
 
   # PATCH/PUT /orders/1 or /orders/1.json
@@ -56,6 +72,22 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_quantity
+    @order.quantity += 1
+    @order.save
+    redirect_to orders_path(@order)
+  end
+
+  def reduce_quantity
+    if @order.quantity > 1
+      @order.quantity -= 1
+    end
+    @order.save
+    redirect_to orders_path(@order)
+  end
+
+
 
   private
 
