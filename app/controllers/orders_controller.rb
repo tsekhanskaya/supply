@@ -36,10 +36,9 @@ class OrdersController < ApplicationController
 
   def create
     chosen_product = Product.find(params[:product_id])
-    order = @order
-
-    if order.products.include?(chosen_product)
-      @order = order.find_by(:product_id => chosen_product)
+    @order || = nil
+    if @order.products.include?(chosen_product)
+      @order = order.find_by(product_id: chosen_product)
       @order.quantity += 1
     else
       @order = Order.new
@@ -47,7 +46,7 @@ class OrdersController < ApplicationController
     end
 
     @order.save
-    redirect_to order_path(order)
+    redirect_to order_url(@order)
   end
 
   # PATCH/PUT /orders/1 or /orders/1.json
@@ -80,14 +79,10 @@ class OrdersController < ApplicationController
   end
 
   def reduce_quantity
-    if @order.quantity > 1
-      @order.quantity -= 1
-    end
+    @order.quantity -= 1 if @order.quantity > 1
     @order.save
     redirect_to orders_path(@order)
   end
-
-
 
   private
 

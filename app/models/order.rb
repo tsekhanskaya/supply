@@ -6,13 +6,13 @@ class Order < ApplicationRecord
   has_one :order_status
 
   def total_price
-    self.quantity * self.product.price
+    quantity * product.price
   end
 
   def sub_total
     sum = 0
     orders.each do |line_item|
-      sum+= line_item.total_price
+      sum += line_item.total_price
     end
     sum
   end

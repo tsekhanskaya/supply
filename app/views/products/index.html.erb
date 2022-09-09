@@ -6,9 +6,9 @@
   <% @products.each do |product| %>
     <%= render product %>
     <%= button_to "Add to cart", orders_path(:product_id => product.id) %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+<!--    <p>-->
+      <%#= link_to "Show this product", product %>
+<!--    </p>-->
   <% end %>
 </div>
 
