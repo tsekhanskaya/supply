@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  has_many :restaurants
   has_many :order_items
   before_save :subtotal
 
