@@ -6,6 +6,7 @@ class OrderItemsController < ApplicationController
     @order_items = @order.order_items.new(order_params)
     @order.save
     session[:order_id] = @order.id
+    redirect_back fallback_location: "/"
   end
 
   def update
@@ -23,7 +24,7 @@ class OrderItemsController < ApplicationController
   private
 
   def order_params
-    params.require(:order_item).permit(:product_id, :quantity)
+    params.require(:order_item).permit(:quantity, :product_id, :order_id, :total, :unit_price)
   end
 
   def set_order

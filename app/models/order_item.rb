@@ -15,7 +15,7 @@ class OrderItem < ApplicationRecord
     end
   end
 
-  def total
+  def set_total
     unit_price * quantity
   end
 

@@ -2,9 +2,8 @@
 
 Rails.application.routes.draw do
   resources :order_items
-
+  # resources :cart
   get 'cart', to: 'cart#show'
-  post 'cart', to: 'cart#show'
 
   resources :restaurants
   resources :brands
