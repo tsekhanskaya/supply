@@ -32,15 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 20_220_908_105_514) do
     t.datetime 'updated_at', null: false
   end
 
-  create_table 'orders', force: :cascade do |t|
-    t.integer 'product_id'
-    t.integer 'quantity', default: 1
-    t.integer 'restaurant_id'
-    t.integer 'status_id', default: 1
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-  end
-
   create_table 'products', force: :cascade do |t|
     t.integer 'brand_id'
     t.string 'title', default: 'No title'
