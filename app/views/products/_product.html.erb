@@ -24,4 +24,9 @@
     <%= image_tag(product.img, alt: "",size: "160x100", class: "img-responsive zoom-img") %>
   </p>
 
+  <%= form_with model: @order_item do |f|%>
+    <%= f.hidden_field :product_id, value: :product.id %>
+    <%= f.number_field :quantity, value: 1 %>
+    <%= f.submit "Add to Cart"%>
+  <% end %>
 </div>
