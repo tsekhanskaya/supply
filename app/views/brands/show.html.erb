@@ -1,47 +1,38 @@
 <!--<p style="color: green"><%#= notice %></p>-->
 
-<%#= render @brand %>
-
-<!--<div>-->
-<!--  <%#= link_to "Edit this brand", edit_brand_path(@brand) %> |-->
-  <%#= link_to "Back to brands", brands_path %>
-
-  <%#= button_to "Destroy this brand", @brand, method: :delete %>
-<!--</div>-->
-
-<!------------------------------------------------------------->
-<%= render @brand %>
-<%= link_to "Edit this brand", edit_brand_path(@brand) %>
-
-
-<!--prdt-starts-->
 <div class="prdt">
   <div class="container">
+    <div>
+      <%= render @brand %>
+      <%= link_to "Edit this brand", edit_brand_path(@brand) %>
+      <%= link_to "Back to brands", brands_path %>
+      <%= button_to "Destroy this brand", @brand, method: :delete %>
+    </div>
     <div class="prdt-top">
       <div class="col-md-9 prdt-left">
         <% if !@products.empty? %>
-          <div class="product-one">
-            <% @products.each do |product| %>
-              <div class="col-md-4 product-left p-left">
-                <div class="product-main simpleCart_shelfItem">
-                  <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product, class: "mask") %>
-                  <div class="product-bottom">
-                    <h3><%= product.title %></h3>
-                    <h4>
-                      <a class="add-to-cart-link" href="cart/add?id=<%=product.id %>" data-id="<%=product.id %>"><i></i></a>
-                      <span class="item_price"><%= product.price %> BYN</span>
-                    </h4>
+          <div class="product-one d-flex flex-column">
+            <h3>Products of this brand:</h3>
+            <div class="row">
+              <% @products.each do |product| %>
+                <div class="col-md-4 product-left p-left me-3">
+                  <div class="product-main simpleCart_shelfItem">
+                    <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product, class: "mask") %>
+                    <div class="product-bottom">
+                      <h3><%= product.title %></h3>
+                      <h4>
+                        <span class="item_price"><%= product.price %> BYN</span>
+                      </h4>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
-            <div class="clearfix"></div>
+              <% end %>
+            </div>
           </div>
         <% else %>
           <h3>There's no products of this brand...</h3>
         <% end %>
       </div>
-      <div class="clearfix"></div>
     </div>
   </div>
 </div>

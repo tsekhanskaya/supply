@@ -6,7 +6,7 @@ class OrderItemsController < ApplicationController
     @order_items = @order.order_items.new(order_params)
     @order.save
     session[:order_id] = @order.id
-    redirect_back fallback_location: "/"
+    redirect_back fallback_location: '/'
   end
 
   def update
