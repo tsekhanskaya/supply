@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  # def current_order
-  #   @current_order ||= Order.find_by_id(session[:order_id]).presence || Order.new
-  # end
+  def current_order
+    @current_order ||= Order.find_by_id(session[:order_id]).presence || Order.new
+  end
 
 
   # def current_order
@@ -17,7 +17,7 @@ module ApplicationHelper
   #   end
   # end
 
-  def current_order
-    Order.new
-  end
+  # def current_order
+  #   Order.new
+  # end
 end

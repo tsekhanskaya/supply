@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'pry'
+gem 'pry-rails'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass'
 gem 'devise'

@@ -9,7 +9,12 @@ class BrandsController < ApplicationController
   end
 
   # GET /brands/1 or /brands/1.json
-  def show; end
+  def show
+    @brand = Brand.find_by(:id => params[:id])
+    return not_found unless @brand
+
+    @products = Product.where(:brand_id => @brand.id)
+  end
 
   # GET /brands/new
   def new

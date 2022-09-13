@@ -1,14 +1,55 @@
-<p style="color: green"><%= notice %></p>
+<!--<p style="color: green"><%#= notice %></p>-->
 
-<h1>Brands</h1>
+<!--<h1>Brands</h1>-->
 
-<div id="brands">
-  <% @brands.each do |brand| %>
-    <%= render brand %>
-    <p>
-      <%= link_to "Show this brand", brand %>
-    </p>
-  <% end %>
+<!--<div id="brands">-->
+  <%# @brands.each do |brand| %>
+    <%#= render brand %>
+<!--    <p>-->
+      <%#= link_to "Show this brand", brand %>
+<!--    </p>-->
+  <%# end %>
+<!--</div>-->
+
+<%#= link_to "New brand", new_brand_path %>
+
+<!---------------------------------------------->
+
+<div class="prdt">
+  <div class="container">
+    <div class="prdt-top">
+      <div class="col-md-12 prdt-left">
+        <div style="text-align:center">
+          <hr>
+          <%= link_to "New brand", new_brand_path %>
+          <hr>
+        </div>
+        <% if !@brands.empty? %>
+          <div class="brands__items">
+            <% @brands.each do |brand| %>
+              <article class="brands__item">
+                <div class="brands__item-wrap">
+                  <div class="brands__item-image">
+                    <%= link_to(image_tag(brand.img, alt: "", height: "180px", class: "img-responsive zoom-img"), brand) %>
+                  </div>
+                  <div class="brands__item-title">
+                    <%= link_to "#{brand.title}", brand %>
+                  </div>
+                  <div>
+                    <%#= link_to "Edit this brand", edit_brand_path(@brand) %>
+                    <%= link_to "Back to brands", brands_path %>
+                    <%= button_to "Destroy this brand", @brand, method: :delete %>
+                  </div>
+                </div>
+              </article>
+            <% end %>
+          </div>
+
+        <% else %>
+          <h3>There's no brands...</h3>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New brand", new_brand_path %>

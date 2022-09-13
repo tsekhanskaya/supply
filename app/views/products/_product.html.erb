@@ -1,34 +1,50 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Brand:</strong>
-    <%= product.brand.title %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= link_to "#{product.title}", product %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Img:</strong>
-    <%= image_tag(product.img, alt: "",size: "160x100", class: "img-responsive zoom-img") %>
-  </p>
-
+<tr>
+  <th scope="row"><%= product.id %></th>
+  <td><%= product.brand.title %></td>
+  <td><%= link_to "#{product.title}", product %></td>
+  <td><%= product.price %></td>
+  <td><%= product.description %></td>
+  <td><%= image_tag(product.img, alt: "", size: "160x100", class: "img-responsive zoom-img") %></td>
   <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
     <%= fields_for :order_item, @order_item do |item| %>
-      <%= item.hidden_field :product_id, value: product.id %>
-      <%= item.number_field :quantity, value: 1, min: 1 %>
-      <%= item.submit "Add to Cart"%>
+      <td><%= item.hidden_field :product_id, value: product.id %></td>
+      <td><%= item.number_field :quantity, value: 1, min: 1 %></td>
+      <td><%= item.submit "Add to Cart"%></td>
     <% end %>
   <% end %>
-</div>
+</tr>
+
+<!--<div id="<%#= dom_id product %>">-->
+<!--  <p>-->
+<!--    <strong>Brand:</strong>-->
+    <%#= product.brand.title %>
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Title:</strong>-->
+    <%#= link_to "#{product.title}", product %>
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Price:</strong>-->
+    <%#= product.price %>
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Description:</strong>-->
+    <%#= product.description %>
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <strong>Img:</strong>-->
+    <%#= image_tag(product.img, alt: "",size: "160x100", class: "img-responsive zoom-img") %>
+<!--  </p>-->
+
+  <%#= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+    <%#= fields_for :order_item, @order_item do |item| %>
+      <%#= item.hidden_field :product_id, value: product.id %>
+      <%#= item.number_field :quantity, value: 1, min: 1 %>
+      <%#= item.submit "Add to Cart"%>
+    <%# end %>
+  <%# end %>
+<!--</div>-->
