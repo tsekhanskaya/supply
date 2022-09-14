@@ -1,29 +1,73 @@
-<p style="color: green"><%= notice %></p>
+<div class="container marketing">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /.container -->
 
-<h1 style="text-align:center">Products</h1>
 
-<div id="products">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Brand</th>
-      <th scope="col">Title</th>
-      <th scope="col">Price</th>
-      <th scope="col">Description</th>
-      <th scope="col">Image</th>
-      <th colspan="10"></th>
-    </tr>
-    </thead>
 
-    <tbody>
-    <% @products.each do |product| %>
-      <%= render product %>
-    <% end %>
-    </tbody>
-  </table>
 
-</div>
+<!--<p style="color: green"><%#= notice %></p>-->
 
-<%= link_to "New product", new_product_path %>
+<!--<h1 style="text-align:center">Products</h1>-->
+
+<!--<div id="products">-->
+<!--  <table class="table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th scope="col">#</th>-->
+<!--      <th scope="col">Brand</th>-->
+<!--      <th scope="col">Title</th>-->
+<!--      <th scope="col">Price</th>-->
+<!--      <th scope="col">Description</th>-->
+<!--      <th scope="col">Image</th>-->
+<!--      <th colspan="10"></th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+
+<!--    <tbody>-->
+    <%# @products.each do |product| %>
+      <%#= render product %>
+    <%# end %>
+<!--    </tbody>-->
+<!--  </table>-->
+
+<!--</div>-->
+
+<%#= link_to "New product", new_product_path %>
 
