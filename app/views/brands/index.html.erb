@@ -18,34 +18,33 @@
 <div class="prdt">
   <div class="container">
     <div class="prdt-top">
-      <div class="col-md-12 prdt-left">
+      <div class="col col-md-12 prdt-left">
         <div style="text-align:center">
-          <hr>
+          <hr class="mt-0">
           <%= link_to "New brand", new_brand_path %>
           <hr>
         </div>
         <% if !@brands.empty? %>
-          <div class="brands__items">
-            <% @brands.each do |brand| %>
-              <article class="brands__item">
-                <div class="brands__item-wrap">
-                  <div class="brands__item-image">
-                    <%= link_to(image_tag(brand.img, alt: "", height: "180px", class: "img-responsive zoom-img"), brand) %>
-                  </div>
-                  <div class="brands__item-title">
-                    <%= link_to "#{brand.title}", brand %>
-                  </div>
-                  <div>
+          <div style="text-align:center">
+            <div class="row row-cols-3 g-3">
+              <% @brands.each do |brand| %>
+                <div class="col product-left p-left ">
+                  <div class="card h-100">
+                    <div class="brand-main">
+                      <%= link_to(image_tag(brand.img, alt: "", height: "180px", class: "img-responsive zoom-img"), brand) %>
+                      <div class="brand-bottom">
+                        <h3><%= brand.title %></h3>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </article>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         <% else %>
           <h3>There's no brands...</h3>
         <% end %>
       </div>
-      <div class="clearfix"></div>
     </div>
   </div>
 </div>
