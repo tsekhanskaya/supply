@@ -26,10 +26,8 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to restaurant_url(@restaurant), notice: 'Restaurant was successfully created.' }
-        format.json { render :show, status: :created, location: @restaurant }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,10 +37,8 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       if @restaurant.update(restaurant_params)
         format.html { redirect_to restaurant_url(@restaurant), notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @restaurant }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +49,6 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
