@@ -1,8 +1,10 @@
 <!--<p style="color: green"><%#= notice %></p>-->
 
-<div class="prdt">
+
   <div class="container">
-    <div>
+    <div class="prdt-top">
+      <div class="col col-md-12 prdt-left">
+    <div class="mb-5">
       <%= render @brand %>
       <%= link_to "Edit this brand", edit_brand_path(@brand) %>
       <%= link_to "Back to brands", brands_path %>
@@ -11,21 +13,24 @@
     <div class="prdt-top">
       <div class="col-md-9 prdt-left">
         <% if !@products.empty? %>
-          <div class="product-one d-flex flex-column">
-            <h3>Products of this brand:</h3>
-            <div class="row">
-              <% @products.each do |product| %>
-                <div class="col-md-4 product-left p-left me-3">
-                  <div class="product-main simpleCart_shelfItem">
-                    <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product, class: "mask") %>
-                    <div class="product-bottom">
-                      <h3><%= product.title %></h3>
-                      <h4>
-                        <span class="item_price"><%= product.price %> BYN</span>
-                      </h4>
+            <h3 class="mb-5">Products of this brand:</h3>
+              <div style="text-align:center">
+                <div class="row row-cols-3 g-3">
+                  <% @products.each do |product| %>
+                    <div class="col product-left p-left ">
+                      <div class="card h-100">
+                        <div class="product-main">
+                          <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
+                          <div class="product-bottom">
+                            <h3><%= product.title %></h3>
+                          </div>
+                          <h4>
+                            <span class="item_price"><%= product.price %> BYN</span>
+                          </h4>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                    </div>
               <% end %>
             </div>
           </div>
