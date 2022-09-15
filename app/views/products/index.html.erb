@@ -1,44 +1,34 @@
-<div class="container marketing">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
+<div class="container">
+  <div class="prdt-top">
+    <div class="col col-md-12 prdt-left">
+      <div style="text-align:center">
+        <hr class="mt-0">
+        <%= link_to "New product", new_product_path %>
+        <hr>
       </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <% if !@products.empty? %>
+        <div style="text-align:center">
+          <div class="row row-cols-3 g-3">
+            <% @products.each do |product| %>
+              <div class="col product-left p-left ">
+                <div class="card h-100">
+                  <div class="product-main">
+                    <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
+                    <div class="product-bottom">
+                      <h3><%= product.title %></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
+      <% else %>
+        <h3>There's no products...</h3>
+      <% end %>
     </div>
   </div>
-</div><!-- /.container -->
-
+</div>
 
 
 
