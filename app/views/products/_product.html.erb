@@ -1,19 +1,30 @@
-<tr>
-  <th scope="row"><%= product.id %></th>
-  <td><%= product.brand.title %></td>
-  <td><%= link_to "#{product.title}", product %></td>
-  <td><%= product.price %></td>
-  <td><%= product.description %></td>
-  <td><%= image_tag(product.img, alt: "", size: "160x100", class: "img-responsive zoom-img") %></td>
-  <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
-    <%= fields_for :order_item, @order_item do |item| %>
-      <td><%= item.hidden_field :product_id, value: product.id %></td>
-      <td><%= item.number_field :quantity, value: 1, min: 1 %></td>
-      <td><%= item.submit "Add to Cart"%></td>
-    <% end %>
-  <% end %>
-</tr>
+<div class="container"></div>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag(product.img, alt: "", class: "img-fluid rounded-start") %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= product.title %></h5>
+        <p class="card-text"><small class="text-muted"><%= product.brand.title %></small></p>
 
+        <p class="card-text"><%= product.description %></p>
+      </div>
+      <div class="card-footer">
+        <p class="card-text"><%= product.price %> BYN</p>
+        <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+          <%= fields_for :order_item, @order_item do |item| %>
+            <p class="card-text"><%= item.hidden_field :product_id, value: product.id %></p>
+            <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1 %></p>
+            <p class="card-text"><%= item.submit "Add to Cart"%></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <!--<div id="<%#= dom_id product %>">-->
 <!--  <p>-->
 <!--    <strong>Brand:</strong>-->

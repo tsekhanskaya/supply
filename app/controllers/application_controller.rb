@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(_resource_or_scope)
     root_path
   end
+
+  # def current_cart
+  #   @current_cart ||= begin
+  #                       Cart.find_or_create_by(user: current_user)
+  #                     end
+  # end
 end

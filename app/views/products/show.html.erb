@@ -1,11 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
 
-<%= render @product %>
+  <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
+  <%= render @product %>
 
-  <%= button_to "Destroy this product", @product, method: :delete %>
-  <%#= button_to "Add to cart", orders_path(:product_id => product.id) %>
+  <div class="container">
+    <div class="text-center">
+      <%= link_to "Edit this product", edit_product_path(@product) %> |
+      <%= link_to "Back to products", products_path%>
+      <br><br>
+      <%= button_to "Destroy this product", @product, method: :delete, :class => 'd-grid gap-2 col-6 mx-auto mb-3' %>
+
+      <%#= button_to "Add to cart", orders_path(:product_id => product.id) %>
+    </div>
+  </div>
+
 </div>
