@@ -1,42 +1,42 @@
 <!--<p style="color: green"><%#= notice %></p>-->
 
-
-  <div class="container">
-    <div class="prdt-top">
-      <div class="col col-md-12 prdt-left">
-    <div class="mb-5">
-      <%= render @brand %>
-      <%= link_to "Edit this brand", edit_brand_path(@brand) %> |
-      <%= link_to "Back to brands", brands_path %>
-      <%= button_to "Destroy this brand", @brand, method: :delete %>
-    </div>
-    <div class="prdt-top">
-      <div class="prdt-left">
-        <% if !@products.empty? %>
-            <h3 class="mb-5">Products of this brand:</h3>
-              <div style="text-align:center">
-                <div class="row row-cols-4 g-3" >
-                  <% @products.each do |product| %>
-                    <div class="col product-left p-left  ">
-                      <div class="card h-100">
-                        <div class="product-main">
-                          <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
-                          <div class="product-bottom">
-                            <h3><%= product.title %></h3>
-                          </div>
-                          <h4>
-                            <span class="item_price"><%= product.price %> BYN</span>
-                          </h4>
-                        </div>
-                      </div>
+<div class="container">
+  <div class="prdt-top">
+    <div class="col col-md-12 prdt-left">
+      <div class="mb-5">
+        <%= render @brand %>
+        <div class="text-center">
+          <%= link_to "Edit this brand", edit_brand_path(@brand) %> |
+          <%= link_to "Back to brands", brands_path %>
+          <%= button_to "Destroy this brand", @brand, method: :delete %>
+        </div>
+      </div>
+  <div class="prdt-top">
+    <div class="prdt-left">
+      <% if !@products.empty? %>
+        <h3 class="mb-5 text-center">Products of this brand:</h3>
+        <div style="text-align:center">
+          <div class="row row-cols-4 g-3" >
+            <% @products.each do |product| %>
+              <div class="col product-left p-left  ">
+                <div class="card h-100">
+                  <div class="product-main">
+                    <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
+                    <div class="product-bottom">
+                      <h5><%= product.title %></h5>
                     </div>
-                  <% end %>
+                    <h5>
+                      <span class="item_price"><%= product.price %> BYN</span>
+                    </h5>
+                  </div>
                 </div>
               </div>
-        <% else %>
-          <h3 class="mb-5">There's no products of this brand...</h3>
-        <% end %>
-      </div>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <h3 class="mb-5">There's no products of this brand...</h3>
+      <% end %>
     </div>
   </div>
 </div>
