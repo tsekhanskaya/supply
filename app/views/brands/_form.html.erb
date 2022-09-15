@@ -9,29 +9,30 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="row">
-    <div class="col col-md">
-      <%= form.label :title, style: "display: block", :class => "form-label" %>
-      <%= form.text_field :title, :placeholder => :title, :class => "form-control" %>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <div class="row mb-3">
+      <div class="col col-md">
+        <%= form.label :title, style: "display: block", :class => "form-label" %>
+        <%= form.text_field :title, :placeholder => :title, :class => "form-control" %>
+      </div>
+      <div class="col">
+        <%= form.label :img, style: "display: block", :class => "form-label" %>
+        <%= form.text_field :img, :placeholder => "example.jpg / example.png",:class => "form-control"%>
+      </div>
     </div>
-    <div class="col">
-      <%= form.label :img, style: "display: block", :class => "form-label" %>
-      <%= form.text_field :img, :class => "form-control"%>
+
+    <div class="mb-3">
+      <%= form.label :description, style: "display: block", :class => "form-label" %>
+      <%= form.text_area :description, :placeholder => :description, :class => "form-control"%>
     </div>
-  </div>
 
-  <div>
-    <%= form.label :description, style: "display: block", :class => "form-label" %>
-    <%= form.text_area :description, :class => "form-control"%>
-  </div>
+    <div class="mb-5">
+      <%= form.label :address, style: "display: block", :class => "form-label" %>
+      <%= form.text_field :address, :placeholder => :address, :class => "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :address, style: "display: block", :class => "form-label" %>
-    <%= form.text_field :address, :class => "form-control" %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <div class="d-grid gap-2 col-12 mx-auto mb-3">
+      <%= form.submit%>
+    </div>
   </div>
 <% end %>
