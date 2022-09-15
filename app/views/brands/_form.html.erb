@@ -2,7 +2,6 @@
   <% if brand.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
-
       <ul>
         <% brand.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,24 +10,25 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="row">
+    <div class="col col-md">
+      <%= form.label :title, style: "display: block", :class => "form-label" %>
+      <%= form.text_field :title, :placeholder => :title, :class => "form-control" %>
+    </div>
+    <div class="col">
+      <%= form.label :img, style: "display: block", :class => "form-label" %>
+      <%= form.text_field :img, :class => "form-control"%>
+    </div>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.label :description, style: "display: block", :class => "form-label" %>
+    <%= form.text_area :description, :class => "form-control"%>
   </div>
 
   <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.label :img, style: "display: block" %>
-    <%= form.text_field :img %>
+    <%= form.label :address, style: "display: block", :class => "form-label" %>
+    <%= form.text_field :address, :class => "form-control" %>
   </div>
 
   <div>
