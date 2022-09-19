@@ -11,17 +11,16 @@ class OrderItemsController < ApplicationController
 
   def update
     @order_item = @order.order_items.find(params[:id])
-    @order_item.update_attributes(order_params)
-    @order_items = current_order.order_items
+    @order_item.assign_attributes(order_params)
+    @order_items = current_order.order_items if @order_item.save
+    redirect_back fallback_location: '/'
   end
 
   def destroy
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     @order_items = current_order.order_items
-    respond_to do |format|
-      format.html { redirect_to cart_url, notice: 'Order_item was successfully destroyed.' }
-    end
+    redirect_back fallback_location: '/'
   end
 
   private

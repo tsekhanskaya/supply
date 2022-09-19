@@ -17,7 +17,7 @@ class OrderItem < ApplicationRecord
   end
 
   def total
-    unit_price * quantity
+    (unit_price * quantity).ceil(2)
   end
 
   private
