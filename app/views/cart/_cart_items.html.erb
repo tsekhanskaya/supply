@@ -1,13 +1,44 @@
-<% @order_items.each do |item| %>
-  <h3><%= item.product.title %></h3>
-  <h3><%= item.product.price %></h3>
-  <%= form_with model: item do |f| %>
-    <%= f.hidden_field :product_id, value: item.product.id %>
-    <%= f.number_field :quantity, value: item.quantity.to_i %>
-    <%= f.submit "Update Cart" %>
-    <%= link_to "Remove Items", item, method: :delete, remote: true %>
-  <% end %>
-  <h2>Subtotal: <%= item.total %></h2>
-<% end %>
+<div class="container">
+  <h3 class="text-center">Your current order has  a total of: <%= current_order.subtotal %></h3>
+  <hr>
+  <table class="table">
+    <thead>
+    <tr class="text-center">
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Subtotal</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @order_items.each do |item| %>
+        <tr class="text-center">
+          <th scope ="row"><%= item.product.title %></th>
+          <td><%= item.product.price %></td>
+          <%= form_with model: item do |f| %>
+            <%= f.hidden_field :product_id, value: item.product.id %>
+            <td><%= f.number_field :quantity, value: item.quantity.to_i %></td>
+            <td><%= f.submit "Update Cart" %></td>
+            <td><%= link_to "Remove Items", item, method: :delete, remote: true %></td>
+            <% end %>
+          <td>Subtotal: <%= item.total %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<h3>Your current order has  a total of: <%= current_order.subtotal %></h3>
+<%# @order_items.each do |item| %>
+<!--  <h3><%#= item.product.title %></h3>-->
+<!--  <h3><%#= item.product.price %></h3>-->
+  <%#= form_with model: item do |f| %>
+    <%#= f.hidden_field :product_id, value: item.product.id %>
+    <%#= f.number_field :quantity, value: item.quantity.to_i %>
+    <%#= f.submit "Update Cart" %>
+    <%#= link_to "Remove Items", item, method: :delete, remote: true %>
+  <%# end %>
+<!--  <h2>Subtotal: <%#= item.total %></h2>-->
+<%# end %>
+

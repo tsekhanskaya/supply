@@ -15,7 +15,7 @@
           <p class="card-text"><%= product.price %> BYN</p>
           <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
             <%= fields_for :order_item, @order_item do |item| %>
-              <p class="card-text"><%= item.hidden_field :product_id, value: product.id %></p>
+<!--              <p class=""><%#= item.hidden_field :product_id, value: product.id %></p>-->
               <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1 %></p>
               <p class="card-text"><%= item.submit "Add to Cart"%></p>
             <% end %>
