@@ -19,12 +19,15 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     @order_items = current_order.order_items
+    respond_to do |format|
+      format.html { redirect_to cart_url, notice: 'Order_item was successfully destroyed.' }
+    end
   end
 
   private
 
   def order_params
-    params.require(:order_item).permit(:quantity, :product_id, :order_id, :total, :unit_price)
+    params.require(:order_item).permit(:quantity, :product_id, :order_id, :unit_price)
   end
 
   def set_order

@@ -3,6 +3,7 @@
 class OrderItem < ApplicationRecord
   belongs_to :product
   belongs_to :order
+  # belongs_to :cart
   before_save :set_unit_price
   before_save :set_total
 
@@ -15,7 +16,7 @@ class OrderItem < ApplicationRecord
     end
   end
 
-  def set_total
+  def total
     unit_price * quantity
   end
 
@@ -25,7 +26,7 @@ class OrderItem < ApplicationRecord
     self[:unit_price] = unit_price
   end
 
-  def total
+  def set_total
     self[:total] = total * quantity
   end
 end

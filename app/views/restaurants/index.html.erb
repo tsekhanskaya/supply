@@ -1,14 +1,50 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Restaurants</h1>
+  <h1 class="text-center">Restaurants</h1>
 
-<div id="restaurants">
-  <% @restaurants.each do |restaurant| %>
-    <%= render restaurant %>
-    <p>
-      <%= link_to "Show this restaurant", restaurant %>
-    </p>
-  <% end %>
+  <div id="restaurants">
+    <% @restaurants.each do |restaurant| %>
+      <%= render restaurant %>
+      <p>
+        <%= link_to "Show this restaurant", restaurant %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New restaurant", new_restaurant_path %>
+
 </div>
 
-<%= link_to "New restaurant", new_restaurant_path %>
+
+<!--<div class="container">-->
+<!--  <div class="prdt-top">-->
+<!--    <div class="col col-md-12 prdt-left">-->
+<!--      <div style="text-align:center">-->
+<!--        <hr class="mt-0">-->
+        <%#= link_to "New restaurant", new_restaurant_path %>
+<!--        <hr>-->
+<!--      </div>-->
+      <%# if !@restaurants.empty? %>
+<!--        <div style="text-align:center">-->
+<!--          <div class="row row-cols-3 g-3">-->
+            <%# @restaurants.each do |restaurant| %>
+<!--              <div class="col brand-left p-left ">-->
+<!--                <div class="card h-100">-->
+<!--                  <div class="brand-main">-->
+                    <%#= link_to(image_tag(restaurant.img, alt: "", height: "180px", class: "img-responsive zoom-img"), brand) %>
+<!--                    <div class="brand-bottom">-->
+<!--                      <h3><%#= brand.title %></h3>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+            <%# end %>
+<!--          </div>-->
+<!--        </div>-->
+      <%# else %>
+<!--        <h3>There's no brands...</h3>-->
+      <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

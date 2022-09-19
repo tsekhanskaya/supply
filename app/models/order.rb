@@ -2,7 +2,7 @@
 
 class Order < ApplicationRecord
   has_many :restaurants
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   before_save :subtotal
 
   def subtotal

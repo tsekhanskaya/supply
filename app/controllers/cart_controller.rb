@@ -8,9 +8,9 @@ class CartController < ApplicationController
   def destroy
     current_order.order_items.each do |order_item|
       quantity = order_item.quantity
-      order_item.product.update!(quantity: order_item.product.quantity+quantity)
+      order_item.product.update!(quantity: order_item.product.quantity + quantity)
     end
     current_order.destroy
-    render :show
+    render cart_path
   end
 end

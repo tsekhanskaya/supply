@@ -1,22 +1,15 @@
-<div id="<%= dom_id restaurant %>">
-  <p>
-    <strong>Title:</strong>
-    <%= restaurant.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= restaurant.description %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= restaurant.address %>
-  </p>
-
-  <p>
-    <strong>Img:</strong>
-    <%= image_tag(restaurant.img, alt: "Picture",size: "160x160", class: "img-responsive zoom-img") %>
-  </p>
-
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag(restaurant.img, alt: "", class: "img-fluid rounded-start") %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= restaurant.title %></h5>
+        <hr>
+        <p class="card-text"><%= restaurant.description %></p>
+        <p class="card-text"><small class="text-muted"><%= restaurant.address %></small></p>
+      </div>
+    </div>
+  </div>
 </div>

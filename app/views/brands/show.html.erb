@@ -22,16 +22,29 @@
         <div style="text-align:center">
           <div class="row row-cols-4 g-3" >
             <% @products.each do |product| %>
-              <div class="col product-left p-left  ">
+              <div class="col">
                 <div class="card h-100">
-                  <div class="product-main">
+                  <div class="card-body">
                     <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
                     <div class="product-bottom">
                       <h5><%= product.title %></h5>
                     </div>
-                    <h5>
-                      <span class="item_price"><%= product.price %> BYN</span>
-                    </h5>
+                  </div>
+                  <div class="card-footer">
+                    <p class="card-text"><%= product.price %> BYN</p>
+                    <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+                      <%= fields_for :order_item, @order_item do |item| %>
+                        <div class="row mb-3">
+                          <div class="col">
+                            <p class="card-text"><%= item.hidden_field :product_id, value: product.id %></p>
+                            <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1 %></p>
+                          </div>
+                          <div class="col">
+                            <p class="card-text"><%= item.submit "Add to Cart"%></p>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
                   </div>
                 </div>
               </div>
