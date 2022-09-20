@@ -21,3 +21,5 @@ import "controllers"
 //= require_tree .
 
 //= require bootstrap-select
+
+import 'bootstrap-icons/font/bootstrap-icons.css'
