@@ -1,19 +1,16 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
-
-  <h1 class="text-center">Restaurants</h1>
+  <div style="text-align:center">
+    <hr class="mt-0">
+      <%= link_to "New restaurant", new_restaurant_path %>
+    <hr>
+  </div>
 
   <div id="restaurants">
     <% @restaurants.each do |restaurant| %>
       <%= render restaurant %>
-      <p>
-        <%= link_to "Show this restaurant", restaurant %>
-      </p>
     <% end %>
   </div>
-
-  <%= link_to "New restaurant", new_restaurant_path %>
-
 </div>
 
 

@@ -1,59 +1,55 @@
-<!--<p style="color: green"><%#= notice %></p>-->
 
 <div class="container">
-  <div class="prdt-top">
-    <div class="col col-md-12 prdt-left">
-      <div class="mb-5">
-        <%= render @brand %>
-
-        <div class="text-center">
-          <%= link_to "Edit this brand", edit_brand_path(@brand) %> |
-          <%= link_to "Back to brands", brands_path %>
-          <br><br>
-          <%= button_to "Destroy this brand", @brand, method: :delete, :class => 'd-grid gap-2 col-6 mx-auto mb-3' %>
-        </div>
-      </div>
+  <p style="color: green"><%= notice %></p>
+  <div class="row">
+    <div class="col d-flex align-items-center justify-content-center">
+      <%= link_to "Back to brands", brands_path %>
+    </div>
+    <div class="col d-flex align-items-center justify-content-center">
+      <%= link_to "Edit this brand", edit_brand_path(@brand), :class => "btn btn-active-light-dark text-secondary"  %>
+    </div>
+    <div class="col d-flex align-items-center justify-content-center">
+      <%= button_to "Destroy this brand", @brand, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
     </div>
   </div>
-  <div class="prdt-top">
-    <div class="prdt-left">
-      <% if !@products.empty? %>
-        <h3 class="mb-5 text-center">Products of this brand:</h3>
-        <div style="text-align:center">
-          <div class="row row-cols-3 g-3" >
-            <% @products.each do |product| %>
-              <div class="col">
-                <div class="card h-100">
-                  <div class="card-body">
-                    <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
-                    <div class="product-bottom">
-                      <h5><%= product.title %></h5>
-                    </div>
-                  </div>
-                  <div class="card-footer">
-                    <p class="card-text">Price: <%= product.price %> BYN</p>
-                    <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
-                      <%= fields_for :order_item, @order_item do |item| %>
-                        <div class="row mb-3">
-                          <div class="col">
-                            <%= item.hidden_field :product_id, value: product.id %>
-                            <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1 %></p>
-                          </div>
-                          <div class="col">
-                            <p class="card-text"><%= item.submit "Add to Cart"%></p>
-                          </div>
-                        </div>
-                      <% end %>
-                    <% end %>
-                  </div>
+  <br>
+  <%= render @brand %>
+
+  <% if !@products.empty? %>
+    <h3 class="mb-5 text-center">Products of this brand:</h3>
+    <div style="text-align:center">
+      <div class="row row-cols-3 g-3" >
+        <% @products.each do |product| %>
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
+                <div class="product-bottom">
+                  <h5><%= product.title %></h5>
                 </div>
               </div>
-            <% end %>
+              <div class="card-footer">
+                <p class="card-text">Price: <%= product.price %> BYN</p>
+                <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+                  <%= fields_for :order_item, @order_item do |item| %>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <%= item.hidden_field :product_id, value: product.id %>
+                        <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1 %></p>
+                      </div>
+                      <div class="col">
+                        <p class="card-text"><%= item.submit "Add to Cart"%></p>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
-        </div>
-      <% else %>
-        <h3 class="mb-5">There's no products of this brand...</h3>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <h3 class="mb-5">There's no products of this brand...</h3>
+  <% end %>
 </div>
