@@ -1,10 +1,13 @@
-<h1>Editing restaurant</h1>
-
-<%= render "form", restaurant: @restaurant %>
-
-<br>
-
-<div>
-  <%= link_to "Show this restaurant", @restaurant %> |
-  <%= link_to "Back to restaurants", restaurants_path %>
+<div class="container">
+  <div class ="d-grid gap-2 col-6 mx-auto">
+    <div class="row">
+      <span class="col text-center"> <%= link_to "Back to restaurants", restaurants_path, :class => 'btn btn-outline-secondary' %></span>
+      <span class="col text-center"> <%= link_to "Show this restaurant", @restaurant, :class => 'btn btn-outline-secondary' %></span>
+    </div>
+    <hr>
+    <h1><%=@restaurant.title %></h1>
+    <hr>
+  </div>
+  <%= render "form", restaurant: @restaurant %>
+  <br>
 </div>

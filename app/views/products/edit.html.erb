@@ -1,12 +1,13 @@
 <div class="container">
-  <h1 style="text-align:center">Editing product</h1>
-
-  <%= render "form", product: @product %>
-
-  <br>
-
-  <div class="text-center">
-    <%= link_to "Show this product", @product %> |
-    <%= link_to "Back to products", products_path %>
+  <div class ="d-grid gap-2 col-6 mx-auto">
+    <div class="row">
+      <span class="col text-center"> <%= link_to "Back to products", products_path, :class => 'btn btn-outline-secondary' %></span>
+      <span class="col text-center"> <%= link_to "Show this product", @product, :class => 'btn btn-outline-secondary' %></span>
+    </div>
+    <hr>
+    <h1><%=@product.title %></h1>
+    <hr>
   </div>
+  <%= render "form", product: @product %>
+  <br>
 </div>

@@ -1,6 +1,7 @@
 <div class="container">
   <div class="align-self-center">
-    <h1 class="text-center">Editing brand</h1>
+    <h1 class="text-center"><%= @brand.title %></h1>
+    <hr class="d-grid gap-2 col-6 mx-auto">
     <%= render "form", brand: @brand %>
     <div class="text-center">
       <%= link_to "Show this brand", @brand %> |
