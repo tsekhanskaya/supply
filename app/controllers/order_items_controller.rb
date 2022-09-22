@@ -6,8 +6,12 @@ class OrderItemsController < ApplicationController
     # @order_items = @order.order_items.new(order_params)
     # @order_items ||= OrderItem.find_by(:product_id).presence || @order.order_items.new(order_params)
 
-    # if @order.order_items.find_by(params[:product_id]).nil?
-    #   @order.order_items.update
+    # if @order.order_items.find_by(params[:product_id])
+    #   p @order.order_items.find_by(params[:product_id])
+    #   p '----------------'
+    #   @order_item = @order.order_items.find_by(params[:product_id])
+    #   @order_item.assign_attributes(order_params)
+    #   @order_items = current_order.order_items if @order_item.save
     # else
     #   @order_items = @order.order_items.new(order_params)
     #   @order.save
