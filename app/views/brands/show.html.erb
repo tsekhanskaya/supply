@@ -1,55 +1,57 @@
-
 <div class="container">
   <p style="color: green"><%= notice %></p>
-  <div class="row">
-    <div class="col d-flex align-items-center justify-content-center">
-      <%= link_to "Back to brands", brands_path %>
-    </div>
-    <div class="col d-flex align-items-center justify-content-center">
-      <%= link_to "Edit this brand", edit_brand_path(@brand), :class => "btn btn-active-light-dark text-secondary"  %>
-    </div>
-    <div class="col d-flex align-items-center justify-content-center">
-      <%= button_to "Destroy this brand", @brand, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
-    </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <%= link_to "Edit", edit_brand_path(@brand), :class => "btn btn-active-light-dark text-secondary"  %>
+    <%= button_to "Destroy", @brand, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
   </div>
   <br>
   <%= render @brand %>
 
-  <% if !@products.empty? %>
-    <h3 class="mb-5 text-center">Products of this brand:</h3>
-    <div style="text-align:center">
-      <div class="row row-cols-3 g-3" >
-        <% @products.each do |product| %>
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body">
-                <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
-                <div class="product-bottom">
-                  <h5><%= product.title %></h5>
+  <div class="fs-8 mb-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 18 18">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path>
+    </svg>
+    <%= link_to "Back to brands", brands_path, :class => "text-muted" %>
+  </div>
+
+  <div class="pt-5 mb-3">
+    <% if !@products.empty? %>
+      <div style="text-align:center">
+        <div class="row row-cols-3 g-3">
+          <% @products.each do |product| %>
+            <div class="col">
+              <div class="card h-100">
+                <div class="card-body">
+                  <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
+                  <div class="product-bottom">
+                    <h5><%= product.title %></h5>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+                    <%= fields_for :order_item, @order_item do |item| %>
+                      <div class="row">
+                        <div class="col col-4">
+                          <p class="card-text pt-2">Price: <%= product.price %> BYN</p>
+                        </div>
+                        <div class="col col-4">
+                          <%= item.hidden_field :product_id, value: product.id %>
+                          <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control " %></p>
+                        </div>
+                        <div class="col">
+                          <p class="card-text"><%= item.submit "Add to Cart", :class => 'btn'%></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
-              <div class="card-footer">
-                <p class="card-text">Price: <%= product.price %> BYN</p>
-                <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
-                  <%= fields_for :order_item, @order_item do |item| %>
-                    <div class="row mb-3">
-                      <div class="col">
-                        <%= item.hidden_field :product_id, value: product.id %>
-                        <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1 %></p>
-                      </div>
-                      <div class="col">
-                        <p class="card-text"><%= item.submit "Add to Cart"%></p>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% else %>
-    <h3 class="mb-5">There's no products of this brand...</h3>
-  <% end %>
+    <% else %>
+      <h3 class="text-center">There's no products of this brand..</h3>
+    <% end %>
+  </div>
 </div>
