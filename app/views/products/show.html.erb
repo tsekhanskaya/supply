@@ -1,16 +1,17 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
-  <div class="row">
-    <div class="col d-flex align-items-center justify-content-center">
-      <%= link_to "Back to products", products_path, :class => "btn btn-active-light-dark text-primary"%>
-    </div>
-    <div class="col d-flex align-items-center justify-content-center">
-      <%= link_to "Edit", edit_product_path(@product), :class => "btn btn-active-light-dark text-secondary" %>
-    </div>
-    <div class="col d-flex align-items-center justify-content-center">
-      <%= button_to "Destroy", @product, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
-    </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <%= link_to "Edit", edit_product_path(@product), :class => "btn btn-active-light-dark text-secondary" %>
+    <%= button_to "Destroy", @product, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
   </div>
   <br>
   <%= render @product %>
+  <div class="pt-5">
+    <div class="fs-8 mb-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 18 18">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path>
+      </svg>
+      <%= link_to "Back to products", products_path, :class => 'text-muted' %>
+    </div>
+  </div>
 </div>
