@@ -1,11 +1,14 @@
 <div class="container">
-  <div class="align-self-center">
-    <h1 class="text-center"><%= @brand.title %></h1>
-    <hr class="d-grid gap-2 col-6 mx-auto">
+  <div class="card card-registration card-registration-2 py-3" style="border-radius: 15px;">
+    <hr class="pt-0">
+    <h1 class="text-center"><%=@brand.title %></h1>
+    <hr class="pt-0">
     <%= render "form", brand: @brand %>
-    <div class="text-center">
-      <%= link_to "Show this brand", @brand %> |
-      <%= link_to "Back to brands", brands_path %>
+    <div class="fs-8 ms-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 18 18">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path>
+      </svg>
+      <%= link_to "Back to brands", brands_path, :class => 'text-muted' %>
     </div>
   </div>
 </div>

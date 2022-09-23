@@ -1,28 +1,27 @@
-
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <%= image_tag(product.img, alt: "", class: "img-fluid rounded-start") %>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag(product.img, alt: "", class: "img-fluid rounded-start") %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= product.title %></h5>
+        <p class="card-text  text-center"><small><%= link_to"#{product.brand.title}", brand_path, :class => "text-muted" %></small></p>
+        <p class="card-text"><%= product.description %></p>
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title text-center"><%= product.title %></h5>
-          <p class="card-text  text-center"><small><%= link_to "#{product.brand.title}", brand_path, :class => "text-muted" %></small></p>
-          <p class="card-text"><%= product.description %></p>
-        </div>
-        <div class="card-footer">
-          <p class="card-text">Price: <%= product.price %> BYN</p>
-          <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
-            <%= fields_for :order_item, @order_item do |item| %>
-              <%= item.hidden_field :product_id, value: product.id %>
-              <p class="card-text "><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control form-control-sm" %></p>
-              <p class="card-text"><%= item.submit "Add to Cart", :class => "btn"%></p>
-            <% end %>
+      <div class="card-footer">
+        <p class="card-text">Price: <%= product.price %> BYN</p>
+        <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+          <%= fields_for :order_item, @order_item do |item| %>
+            <%= item.hidden_field :product_id, value: product.id %>
+            <p class="card-text "><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control form-control-sm" %></p>
+            <p class="card-text"><%= item.submit "Add to Cart", :class => "btn btn-outline-dark"%></p>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
 
 
