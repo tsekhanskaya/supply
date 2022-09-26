@@ -1,12 +1,13 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
-  <% if can? :update, @brand %>
-    <%= link_to "Edit", edit_brand_path(@brand), :class => "btn btn-active-light-dark text-secondary"  %>
-  <% end %>
-  <% if can? :destroy, @brand %>
-    <%= button_to "Destroy", @brand, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
-  <% end %>
-
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <% if can? :update, @brand %>
+      <%= link_to "Edit", edit_brand_path(@brand), :class => "btn btn-active-light-dark text-secondary"  %>
+    <% end %>
+    <% if can? :destroy, @brand %>
+      <%= button_to "Destroy", @brand, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
+    <% end %>
+  </div>
   <br>
   <%= render @brand %>
 

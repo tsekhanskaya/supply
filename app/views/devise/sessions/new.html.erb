@@ -1,7 +1,6 @@
-<div class="d-flex flex-column align-items-center">
-  <div class="col-4 d-flex flex-column align-items-center ">
-      <h2>Log in</h2>
-
+<div class="d-grid gap-2 col-3 mx-auto mb-3">
+      <h2 class="text-center">Log in</h2>
+      <div class="row">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field mb-3">
           <%= f.label :email, :class => 'form-label'%><br />
@@ -21,10 +20,9 @@
         <% end %>
 
         <div class="actions mb-3">
-          <%= f.submit "Log in", :class=>'btn btn-primary'%>
+          <%= f.submit "Log in", :class => 'btn btn-outline-dark'%>
         </div>
       <% end %>
-
+      </div>
       <%= render "devise/shared/links" %>
-  </div>
 </div>
