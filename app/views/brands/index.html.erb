@@ -11,7 +11,9 @@
         <% end %>
         <hr>
       </div>
-      <% if !@brands.empty? %>
+      <% if @brands.empty? %>
+        <h3>There's no brands...</h3>
+      <% else %>
         <div style="text-align:center">
           <div class="row row-cols-3 g-3">
             <% @brands.each do |brand| %>
@@ -28,8 +30,6 @@
             <% end %>
           </div>
         </div>
-      <% else %>
-        <h3>There's no brands...</h3>
       <% end %>
     </div>
   </div>

@@ -66,7 +66,6 @@ class RestaurantsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def restaurant_params
-    # @restaurant.user_id = current_user.id
     params.require(:restaurant).permit(:title, :description, :address, :img, :user_id)
   end
 end
