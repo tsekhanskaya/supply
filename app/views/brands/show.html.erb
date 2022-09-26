@@ -1,9 +1,13 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <% if can? :update, @brand %>
     <%= link_to "Edit", edit_brand_path(@brand), :class => "btn btn-active-light-dark text-secondary"  %>
+  <% end %>
+  <% if can? :destroy, @brand %>
     <%= button_to "Destroy", @brand, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
-  </div>
+<% end %>
+
+
   <br>
   <%= render @brand %>
 
@@ -22,6 +26,7 @@
             <div class="col">
               <div class="card h-100">
                 <div class="card-body">
+
                   <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
                   <div class="product-bottom">
                     <h5><%= product.title %></h5>

@@ -4,7 +4,11 @@
     <div class="col col-md-12 prdt-left">
       <div style="text-align:center">
         <hr class="mt-0">
-        <%= link_to "New brand", new_brand_path %>
+        <% if can? :create, Brand  %>
+          <%= link_to "New brand", new_brand_path %>
+        <% else %>
+          <h5 class="card-title text-center">Поставщики</h5>
+        <% end %>
         <hr>
       </div>
       <% if !@brands.empty? %>

@@ -4,7 +4,11 @@
       <div style="text-align:center">
         <!--<p style="color: green"><%#= notice %></p>-->
         <hr class="mt-0">
-        <%= link_to "New product", new_product_path %>
+        <% if can? :create, Product  %>
+          <%= link_to "New product", new_product_path %>
+        <% else %>
+          <h5 class="card-title text-center">Продукты</h5>
+        <% end %>
         <hr>
       </div>
       <% if !@products.empty? %>

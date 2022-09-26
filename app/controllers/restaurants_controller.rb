@@ -5,11 +5,13 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants or /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    # @restaurants = Restaurant.all
+    @restaurants = Restaurant.where(user_id: current_user)
   end
 
   # GET /restaurants/1
-  def show; end
+  def show
+  end
 
   # GET /restaurants/new
   def new
@@ -22,7 +24,7 @@ class RestaurantsController < ApplicationController
   # POST /restaurants
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    # @restaurant.user_id = current_user.id
+    @restaurant.user_id = current_user.id
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to restaurant_url(@restaurant), notice: 'Restaurant was successfully created.' }
@@ -62,7 +64,7 @@ class RestaurantsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def restaurant_params
-    @restaurant.user_id = current_user.id
+    # @restaurant.user_id = current_user.id
     params.require(:restaurant).permit(:title, :description, :address, :img)
   end
 end

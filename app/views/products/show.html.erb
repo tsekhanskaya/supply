@@ -1,8 +1,12 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <%= link_to "Edit", edit_product_path(@product), :class => "btn btn-active-light-dark text-secondary" %>
-    <%= button_to "Destroy", @product, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
+    <% if can? :update, @product %>
+      <%= link_to "Edit", edit_product_path(@product), :class => "btn btn-active-light-dark text-secondary" %>
+    <% end %>
+    <% if can? :destroy, @product %>
+      <%= button_to "Destroy", @product, method: :delete, :class => 'btn btn-active-light-dark text-danger' %>
+    <% end %>
   </div>
   <br>
   <%= render @product %>

@@ -2,17 +2,21 @@
 <!--  <p style="color: green"><%#= notice %></p>-->
   <div style="text-align:center">
     <hr class="mt-0">
-    <% if can? :create, Restaurant  %>
-      <%= link_to "New restaurant", new_restaurant_path %>
-    <% else %>
-      <h5 class="card-title text-center">Рестораны</h5>
-    <% end %>
+      <% if can? :create, Restaurant  %>
+        <%= link_to "New restaurant", new_restaurant_path %>
+      <% else %>
+        <h5 class="card-title text-center">Рестораны</h5>
+      <% end %>
     <hr>
   </div>
 
   <div id="restaurants">
-    <% @restaurants.each do |restaurant| %>
-      <%= render restaurant %>
+    <% if !@restaurants.empty? %>
+      <% @restaurants.each do |restaurant| %>
+        <%= render restaurant %>
+      <% end %>
+    <% else %>
+      <h3>There's no restaurants...</h3>
     <% end %>
   </div>
 </div>

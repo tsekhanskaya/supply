@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_many :restaurants
 
-  enum role: %i[user user_restaurant user_brand admin]
+  enum role: %i[user_restaurant user_brand admin]
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
