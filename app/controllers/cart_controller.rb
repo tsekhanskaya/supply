@@ -2,9 +2,7 @@
 
 class CartController < ApplicationController
   def show
-    if current_order.status_id == 1
-      @order_items = current_order.order_items
-    end
+    @order_items = current_order.order_items if current_order.status_id == 1
   end
 
   # change status
@@ -22,8 +20,6 @@ class CartController < ApplicationController
     current_order.destroy
     render cart_path
   end
-
-  private
 
   # def order_params
   #   params.require(:order).permit(:total, :status_id, :restaurant_id)

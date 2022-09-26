@@ -5,8 +5,11 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants or /restaurants.json
   def index
-    # @restaurants = Restaurant.all
-    @restaurants = Restaurant.where(user_id: current_user)
+    @restaurants = if current_user.admin?
+                     Restaurant.all
+                   else
+                     Restaurant.where(user_id: current_user)
+                   end
   end
 
   # GET /restaurants/1
@@ -64,6 +67,6 @@ class RestaurantsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def restaurant_params
     # @restaurant.user_id = current_user.id
-    params.require(:restaurant).permit(:title, :description, :address, :img)
+    params.require(:restaurant).permit(:title, :description, :address, :img, :user_id)
   end
 end
