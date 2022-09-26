@@ -2,7 +2,11 @@
 <!--  <p style="color: green"><%#= notice %></p>-->
   <div style="text-align:center">
     <hr class="mt-0">
+    <% if current_user.user_restaurant? || current_user.admin? %>
       <%= link_to "New restaurant", new_restaurant_path %>
+    <% else %>
+      <h5 class="card-title text-center">Рестораны</h5>
+    <% end %>
     <hr>
   </div>
 

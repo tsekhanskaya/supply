@@ -79,6 +79,7 @@ GEM
       sassc (>= 2.0.0)
     bootstrap-select-rails (1.13.8)
     builder (3.2.4)
+    cancancan (3.4.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -261,6 +262,7 @@ DEPENDENCIES
   bootsnap
   bootstrap-sass
   bootstrap-select-rails
+  cancancan
   capybara
   debug
   devise

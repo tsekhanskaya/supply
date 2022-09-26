@@ -14,15 +14,16 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
+    # @restaurant.user_id = current_user.id
   end
 
   # GET /restaurants/1/edit
-  def edit; end
+  def edit;  end
 
   # POST /restaurants or /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
-
+    # @restaurant.user_id = current_user.id
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to restaurant_url(@restaurant), notice: 'Restaurant was successfully created.' }
@@ -30,6 +31,7 @@ class RestaurantsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
       end
     end
+    # end
   end
 
   # PATCH/PUT /restaurants/1 or /restaurants/1.json
@@ -61,6 +63,7 @@ class RestaurantsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def restaurant_params
+    @restaurant.user_id = current_user.id
     params.require(:restaurant).permit(:title, :description, :address, :img)
   end
 end

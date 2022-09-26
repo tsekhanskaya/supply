@@ -8,6 +8,7 @@ ruby '3.0.3'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
+gem 'cancancan'
 gem 'devise'
 gem 'importmap-rails'
 gem 'jbuilder'
