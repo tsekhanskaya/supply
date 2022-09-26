@@ -14,6 +14,5 @@ class Ability
     can %i[create update], OrderItem if user.user_restaurant?
     cannot %i[create update destroy], Product if user.user_restaurant?
     cannot %i[create update destroy], Brand if user.user_restaurant?
-
   end
 end

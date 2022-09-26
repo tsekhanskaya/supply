@@ -3,15 +3,16 @@
 class Order < ApplicationRecord
   has_many :restaurants
   has_many :order_items, dependent: :destroy
-  before_save :set_subtotal
+  has_one :status
+  before_save :set_total
 
-  def subtotal
-    order_items.collect { |order_item| order_item.valid? ? order_item.unit_price * order_item.quantity : 0 }.sum
+  def total
+    order_items.collect { |order_item| order_item.valid? ? order_item.unit_price * order_item.quantity : 0 }.sum.ceil(2)
   end
 
   private
 
-  def set_subtotal
-    self[:subtotal] = subtotal
+  def set_total
+    self[:total] = total
   end
 end

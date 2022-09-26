@@ -10,8 +10,7 @@ class RestaurantsController < ApplicationController
   end
 
   # GET /restaurants/1
-  def show
-  end
+  def show; end
 
   # GET /restaurants/new
   def new

@@ -1,24 +1,27 @@
-<% @order_items.each do |item| %>
-  <hr class="my-4">
-  <div class="row mb-4 d-flex justify-content-between align-items-center">
-    <div class="col-2 ">
-      <%= image_tag(item.product.img, alt: "", :class => "img-fluid rounded-3") %>
-    </div>
-    <div class="col-5">
-      <h6 class="text-muted"><%= item.product.title %></h6>
-      <h6 class="text-black mb-0"><%= item.product.price %>BYN</h6>
-      <%#= link_to "Remove Items", item, method: :delete, :class => "text-danger" %>
-      <%= button_to "Destroy", item, method: :delete, :class => 'btn btn-link text-danger' %>
-    </div>
-    <div class="col-2 d-flex">
-      <%= form_with model: item do |f| %>
-        <%= f.hidden_field :product_id, value: item.product.id %>
-        <%= f.number_field :quantity, value: item.quantity.to_i, :class => "form-control form-control-sm mb-2" %>
-        <%= f.submit "Update Cart", :class => "btn btn-link text-success" %>
-    </div>
-    <div class="col-3 d-flex justify-content-center">
-      <h6 class="mb-0"><%= item.total %> BYN</h6>
-    </div>
+<% if !@order_items.empty? %>
+    <% @order_items.each do |item| %>
+      <hr class="my-4">
+      <div class="row mb-4 d-flex justify-content-between align-items-center">
+        <div class="col-2 ">
+          <%= image_tag(item.product.img, alt: "", :class => "img-fluid rounded-3") %>
+        </div>
+        <div class="col-5">
+          <h6 class="text-muted"><%= item.product.title %></h6>
+          <h6 class="text-black mb-0"><%= item.product.price %>BYN</h6>
+          <%= button_to "Destroy", item, method: :delete, :class => 'btn btn-link text-danger' %>
+        </div>
+        <div class="col-2 d-flex">
+          <%= form_with model: item do |f| %>
+            <%= f.hidden_field :product_id, value: item.product.id %>
+            <%= f.number_field :quantity, value: item.quantity.to_i, :class => "form-control form-control-sm mb-2" %>
+            <%= f.submit "Update Cart", :class => "btn btn-link text-success" %>
+        </div>
+        <div class="col-3 d-flex justify-content-center">
+          <h6 class="mb-0"><%= item.total %> BYN</h6>
+        </div>
+        <% end %>
+      </div>
     <% end %>
-  </div>
+<% else %>
+ <p> There is no products...</p>
 <% end %>

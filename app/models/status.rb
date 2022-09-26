@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class OrderStatus < ApplicationRecord
+class Status < ApplicationRecord
   has_one :order
 end
