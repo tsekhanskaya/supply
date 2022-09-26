@@ -6,11 +6,12 @@ class Ability
   def initialize(user)
     can :manage, :all if user.admin?
 
-    can :edit, User, id: user.id # делает devise
-    can :read, Blog, published: true
-    can :edit, Restaurant, user_id: user.id
+    can :create, Restaurant if user.user_restaurant?
+    can :destroy, Restaurant, user: user if user.user_restaurant?
+    can :update, Restaurant, user: user if user.user_restaurant?
+    can :show, Restaurant if user.user_restaurant?
 
-    can :manage, Comment, user_id: user.id
+
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?

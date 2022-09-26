@@ -9,10 +9,10 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
+  has_many :restaurants
+
   enum role: %i[user user_restaurant user_brand admin]
   after_initialize :set_default_role, if: :new_record?
-
-  belongs_to :restaurant
 
   def set_default_role
     self.role ||= :user
