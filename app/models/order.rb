@@ -13,6 +13,6 @@ class Order < ApplicationRecord
   private
 
   def set_total
-    self[:total] = self.total
+    self[:total] = order.total
   end
 end
