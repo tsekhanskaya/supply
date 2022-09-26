@@ -11,12 +11,12 @@
   </div>
 
   <div id="restaurants">
-    <% if !@restaurants.empty? %>
-      <% @restaurants.each do |restaurant| %>
-        <%= render restaurant %>
-      <% end %>
-    <% else %>
+    <% if @restaurants.empty? %>
       <h3>There's no restaurants...</h3>
-    <% end %>
+    <%  else  %>
+      <%  @restaurants.each do |restaurant|  %>
+        <%=  render restaurant  %>
+      <%  end  %>
+    <%  end %>
   </div>
 </div>
