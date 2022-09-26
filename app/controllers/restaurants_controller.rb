@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     @restaurants = if current_user.admin?
                      Restaurant.all
                    else
-                     Restaurant.where(:user_id => current_user.id)
+                     Restaurant.where(user_id: current_user)
                    end
   end
 
