@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   has_many :restaurants
   has_many :order_items, dependent: :destroy
   has_one :status
+  before_save :total
   before_save :set_total
 
   def total
@@ -13,6 +14,6 @@ class Order < ApplicationRecord
   private
 
   def set_total
-    self[:total] = order.total
+    self[:total] = total
   end
 end
