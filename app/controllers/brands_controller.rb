@@ -18,7 +18,11 @@ class BrandsController < ApplicationController
 
   # GET /brands/new
   def new
-    @brand = Brand.new
+    if can? :create, Brand
+      @brand = Brand.new
+    else
+      render not_found
+    end
   end
 
   # GET /brands/1/edit
@@ -37,7 +41,7 @@ class BrandsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /brands/1 or /brands/1.json
+  # PATCH/PUT /brands/1
   def update
     respond_to do |format|
       if @brand.update(brand_params)
@@ -48,7 +52,7 @@ class BrandsController < ApplicationController
     end
   end
 
-  # DELETE /brands/1 or /brands/1.json
+  # DELETE /brands/1
   def destroy
     @brand.destroy
 
