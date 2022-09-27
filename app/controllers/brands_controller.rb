@@ -3,12 +3,12 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only: %i[show edit update destroy]
 
-  # GET /brands or /brands.json
+  # GET /brands
   def index
     @brands = Brand.all
   end
 
-  # GET /brands/1 or /brands/1.json
+  # GET /brands/1
   def show
     @brand = Brand.find_by(id: params[:id])
     return not_found unless @brand
@@ -21,14 +21,16 @@ class BrandsController < ApplicationController
     if can? :create, Brand
       @brand = Brand.new
     else
-      render not_found
+      render 'errors/not_found'
     end
   end
 
   # GET /brands/1/edit
-  def edit; end
+  def edit
+    render 'errors/not_found' unless can? :update, Brand
+  end
 
-  # POST /brands or /brands.json
+  # POST /brands
   def create
     @brand = Brand.new(brand_params)
 
