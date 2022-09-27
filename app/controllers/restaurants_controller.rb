@@ -5,12 +5,12 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants or /restaurants.json
   def index
-    # @restaurants = if current_user.admin?
-    #                  Restaurant.all
-    #                else
-    #                  Restaurant.where(user_id: current_user)
-    #                end
-    @restaurants = Restaurant.all
+    @restaurants = if current_user.admin?
+                     Restaurant.all
+                   else
+                     Restaurant.where(user_id: current_user)
+                   end
+    # @restaurants = Restaurant.all
   end
 
   # GET /restaurants/1
