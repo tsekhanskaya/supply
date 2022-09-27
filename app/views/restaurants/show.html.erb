@@ -1,5 +1,4 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <% if can? :update, @restaurant %>
       <%= link_to "Edit", edit_restaurant_path(@restaurant), :class => "btn btn-active-light-dark text-secondary" %>
