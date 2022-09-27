@@ -10,9 +10,6 @@ class RestaurantsController < ApplicationController
                    else
                      Restaurant.where(user_id: current_user)
                    end
-    p "HAHAHAHAHAHAHHA"
-    p @restaurants
-    # @restaurants = Restaurant.all
   end
 
   # GET /restaurants/1
