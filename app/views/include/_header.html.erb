@@ -8,15 +8,25 @@
         <%= link_to "Рестораны", restaurants_path, :class => 'btn btn-active-light-dark text-secondary' %>
       </ul>
 
-      <div class="text-end">
+      <div class="navbar-nav flex-row ms-md-auto">
           <% if user_signed_in? %>
-            Вы вошли как <strong><%= current_user.email %></strong>
-            <%= link_to "Редактирование аккаунта", edit_user_registration_path, :class => 'btn btn-active-light-dark text-secondary' %>
-            <%= link_to "Корзина", cart_path, :class => 'btn btn-warning text-black' %>
-            <%= link_to "Выйти", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light me-2" %>
+          <a class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false">Вы вошли как <strong><%= current_user.email %></strong></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to "Редактирование аккаунта", edit_user_registration_path, :class => 'dropdown-item' %>
+            </li>
+            <% if can? :users_managing, User %>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to "Менеджер аккаунтов",admin_manage_for_users_path, :class => 'dropdown-item' %>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to "Корзина", cart_path, :class => 'btn btn-warning text-black mx-1' %>
+            <%= link_to "Выйти", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light mx-1" %>
           <% else %>
-            <%= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-warning text-black'  %>
-            <%= link_to "Войти", new_user_session_path, :class => 'btn btn-outline-light me-2'%>
+            <%= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-warning text-black mx-1'  %>
+            <%= link_to "Войти", new_user_session_path, :class => 'btn btn-outline-light mx-1'%>
           <% end %>
       </div>
     </div>

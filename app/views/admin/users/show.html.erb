@@ -1,0 +1,30 @@
+<div class="single">
+  <div class="single-main">
+    <div class="register-top heading">
+      <p><h2>USER <%= @user.email %></h2></p>
+    </div>
+    <br>
+    <div class="container">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h1 class="panel-title" id="panel-title" style="font-size: 36px;">Profile Information
+          <%= link_to "Edit", "/admin/user/edit/#{@user.id}" , class: "btn btn-default" %></h1>
+        </div>
+        <div class="panel-body bio-graph-info">
+          <div class="row">
+
+            <div class="bio-row">
+                <p><span><b>Email</b> </span>: <%= @user.email %></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h1 class="panel-title" id="panel-title" style="font-size: 36px;">Order Information</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

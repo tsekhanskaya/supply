@@ -10,7 +10,7 @@
   </div>
 
   <div id="restaurants">
-    <% if @restaurants.empty? || @restaurants.nil? %>
+    <% if @restaurants.empty? %>
       <h3>There's no restaurants...</h3>
     <%  else  %>
       <%  @restaurants.each do |restaurant|  %>

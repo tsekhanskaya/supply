@@ -22,4 +22,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  namespace :admin do
+    get 'user/:id', to: 'users#show'
+    get 'user/edit/:id', to: 'users#edit_page'
+    put 'user/edit/:id', to: 'users#edit'
+    delete 'user/:id', to: 'users#destroy'
+    get 'manage-for-users', to: 'users#users_managing'
+  end
 end
