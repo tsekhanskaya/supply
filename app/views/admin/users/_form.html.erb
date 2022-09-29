@@ -1,0 +1,24 @@
+<%= form_with(model: user) do |form| %>
+  <%#= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+    <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <div class="mb-3">
+      <%= form.label :role, style: "display: block", :class => "form-label"%>
+      <%= form.select :role, User.roles, :class => "form-select" %>
+    </div>
+    <%= form.submit :class => "btn btn-outline-dark" %>
+  </div>
+<% end %>
+
+<%# end %>

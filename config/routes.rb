@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :restaurants
   resources :brands
+
   devise_for :users
+  resources :users
 
   root to: 'products#index'
 
@@ -25,8 +27,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'user/:id', to: 'users#show'
-    get 'user/edit/:id', to: 'users#edit_page'
-    put 'user/edit/:id', to: 'users#edit'
+    get 'users/edit/:id', to: 'users#edit'
+    put 'users/edit/:id', to: 'users#edit'
     delete 'user/:id', to: 'users#destroy'
     get 'manage-for-users', to: 'users#users_managing'
   end
