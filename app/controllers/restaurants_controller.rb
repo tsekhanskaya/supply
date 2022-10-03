@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
-  before_action :check_for_user, only: %i[edit]
   before_action :set_restaurant, only: %i[show edit update destroy]
   before_action :current_restaurant
 
@@ -44,7 +43,6 @@ class RestaurantsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
       end
     end
-    # end
   end
 
   # PATCH/PUT /restaurants/1
@@ -68,10 +66,6 @@ class RestaurantsController < ApplicationController
   end
 
   private
-
-  def check_for_user
-    redirect_to root_path, alert: 'You dont have access' unless current_user.user_restaurant or current_user.admin
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_restaurant
