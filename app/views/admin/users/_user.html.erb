@@ -13,9 +13,9 @@
     <div class="col d-flex justify-content-center">
       <strong>Email</strong>
     </div>
-    <div class="col d-flex justify-content-center">
-      <strong>Role</strong>
-    </div>
+<!--    <div class="col d-flex justify-content-center">-->
+<!--      <strong>Role</strong>-->
+<!--    </div>-->
   </div>
   <% @users.each do |user| %>
     <hr class="my-4">
@@ -29,9 +29,9 @@
       <div class="col d-flex justify-content-center">
         <h6 class="text-black mb-0"><%= link_to "#{user.email}", "/admin/users/edit/#{user.id}"%></h6>
       </div>
-      <div class="col d-flex justify-content-center">
-        <h6 class="mb-0"><%= user.role %></h6>
-      </div>
+<!--      <div class="col d-flex justify-content-center">-->
+<!--        <h6 class="mb-0"><%#= if user.admin? or user.user_restaurant? or user.user_brand?%></h6>-->
+<!--      </div>-->
     </div>
   <% end %>
 <% end %>

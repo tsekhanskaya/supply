@@ -20,6 +20,21 @@
       <%= form.label :role, style: "display: block", :class => "form-label"%>
       <%= form.select :role, User.roles, :class => "form-select" %>
     </div>
+
+    <div class="mb-3">
+      <%= form.label :user_restaurant, style: "display: block", :class => "form-label"%>
+      <%= form.check_box(:user_restaurant, {}, "True", "False") %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :user_brand, style: "display: block", :class => "form-label"%>
+      <%= form.check_box(:user_brand, {}, "True", "False") %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :admin, style: "display: block", :class => "form-label"%>
+      <%= form.check_box(:admin, {}, "True", "False") %>
+    </div>
     <%= form.submit :class => "btn btn-outline-dark" %>
   </div>
 <% end %>
