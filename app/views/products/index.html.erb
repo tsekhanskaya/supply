@@ -27,7 +27,7 @@
                       <h5><%= product.title %></h5>
                     </div>
                   </div>
-                  <% if can? %i[create update], OrderItem %>
+                  <% if can? :create, OrderItem %>
                     <div class="card-footer">
                       <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
                         <%= fields_for :order_item, @order_item do |item| %>

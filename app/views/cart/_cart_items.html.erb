@@ -10,8 +10,11 @@
       <div class="col-5">
         <h6 class="text-muted"><%= item.product.title %></h6>
         <h6 class="text-black mb-0"><%= item.product.price %>BYN</h6>
-        <%= button_to "Destroy", item, method: :delete, :class => 'btn btn-link text-danger' %>
+        <% if can? :destroy, OrderItem %>
+          <%= button_to "Destroy", item, method: :delete, :class => 'btn btn-link text-danger' %>
+        <% end %>
       </div>
+      <% if can? :update, OrderItem %>
       <div class="col-2 d-flex">
         <%= form_with model: item do |f| %>
           <%= f.hidden_field :product_id, value: item.product.id %>
@@ -23,5 +26,6 @@
           </div>
         <% end %>
         </div>
+      <% end %>
   <% end %>
 <% end %>
