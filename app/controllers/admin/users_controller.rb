@@ -31,7 +31,7 @@ module Admin
     private
 
     def check_for_admin
-      redirect_to root_path, alert: 'You dont have access' unless current_user.admin?
+      redirect_to root_path, alert: 'You dont have access' unless current_user.admin
     end
 
     def set_user
@@ -39,8 +39,7 @@ module Admin
     end
 
     def user_params
-      params.require(:user).permit(:role.to_s.to_i, :email, :admin, :user_restaurant, :user_brand)
-      # params.require(:user).permit(:role.to_s.to_i, :email)
+      params.require(:user).permit(:email, :admin, :user_restaurant, :user_brand)
     end
   end
 end

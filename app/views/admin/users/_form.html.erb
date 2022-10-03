@@ -17,24 +17,20 @@
     </div>
 
     <div class="mb-3">
-      <%= form.label :role, style: "display: block", :class => "form-label"%>
-      <%= form.select :role, User.roles, :class => "form-select" %>
-    </div>
-
-    <div class="mb-3">
       <%= form.label :user_restaurant, style: "display: block", :class => "form-label"%>
-      <%= form.check_box(:user_restaurant, {}, "True", "False") %>
+      <%= form.check_box :user_restaurant %>
     </div>
 
     <div class="mb-3">
       <%= form.label :user_brand, style: "display: block", :class => "form-label"%>
-      <%= form.check_box(:user_brand, {}, "True", "False") %>
+      <%= form.check_box :user_brand %>
     </div>
 
     <div class="mb-3">
       <%= form.label :admin, style: "display: block", :class => "form-label"%>
-      <%= form.check_box(:admin, {}, "True", "False") %>
+      <%= form.check_box :admin %>
     </div>
+    <ul class="">Для улучшения распредление обязанностей убедитесь, что у пользователя установлена только одна роль!</ul>
     <%= form.submit :class => "btn btn-outline-dark" %>
   </div>
 <% end %>

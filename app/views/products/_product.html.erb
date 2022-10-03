@@ -11,11 +11,13 @@
       </div>
       <div class="card-footer">
         <p class="card-text">Price: <%= product.price %> BYN</p>
-        <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
-          <%= fields_for :order_item, @order_item do |item| %>
-            <%= item.hidden_field :product_id, value: product.id %>
-            <p class="card-text "><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control form-control-sm" %></p>
-            <p class="card-text"><%= item.submit "Add to Cart", :class => "btn btn-outline-dark"%></p>
+        <% if can? %i[create update], OrderItem %>
+          <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+            <%= fields_for :order_item, @order_item do |item| %>
+              <%= item.hidden_field :product_id, value: product.id %>
+              <p class="card-text "><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control form-control-sm" %></p>
+              <p class="card-text"><%= item.submit "Add to Cart", :class => "btn btn-outline-dark"%></p>
+            <% end %>
           <% end %>
         <% end %>
       </div>

@@ -24,24 +24,26 @@
                       <h5><%= product.title %></h5>
                     </div>
                   </div>
-                  <div class="card-footer">
-                    <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
-                      <%= fields_for :order_item, @order_item do |item| %>
-                        <div class="row">
-                          <div class="col col-4">
-                            <p class="card-text pt-2">Price: <%= product.price %> BYN</p>
+                  <% if can? %i[create update], OrderItem %>
+                    <div class="card-footer">
+                      <%= form_with url: "/order_items", method: :post, model: @order_item do |f|%>
+                        <%= fields_for :order_item, @order_item do |item| %>
+                          <div class="row">
+                            <div class="col col-4">
+                              <p class="card-text pt-2">Price: <%= product.price %> BYN</p>
+                            </div>
+                            <div class="col col-4">
+                              <%= item.hidden_field :product_id, value: product.id %>
+                              <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control " %></p>
+                            </div>
+                            <div class="col">
+                              <p class="card-text"><%= item.submit "Add to Cart", :class => 'btn btn-outline-dark'%></p>
+                            </div>
                           </div>
-                          <div class="col col-4">
-                            <%= item.hidden_field :product_id, value: product.id %>
-                            <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control " %></p>
-                          </div>
-                          <div class="col">
-                            <p class="card-text"><%= item.submit "Add to Cart", :class => 'btn btn-outline-dark'%></p>
-                          </div>
-                        </div>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                  </div>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             <% end %>

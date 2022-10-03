@@ -4,11 +4,11 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show edit update destroy]
   before_action :current_restaurant
 
-  # GET /restaurants or /restaurants.json
+  # GET /restaurants
   def index; end
 
   def current_restaurant
-    @restaurants = if current_user.admin?
+    @restaurants = if !current_user.user_restaurant?
                      Restaurant.all
                    else
                      Restaurant.where(user_id: current_user.id)
