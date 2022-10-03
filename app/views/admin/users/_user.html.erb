@@ -32,13 +32,13 @@
       <div class="col d-flex justify-content-center">
         <h6 class="mb-0">
           <% if user.admin %>
-              <%= :admin %>
+              admin
             <% elsif user.user_restaurant %>
-              <%= :user_restaurant %>
+              user_restaurant
             <% elsif user.user_brand %>
-              <%= :user_brand %>
+              user_brand
             <% else %>
-              Роль
+              Нет роли
             <% end %>
           </h6>
       </div>

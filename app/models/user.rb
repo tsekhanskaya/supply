@@ -10,6 +10,4 @@ class User < ApplicationRecord
          :validatable
 
   has_many :restaurants
-
-  enum role: %i[user_restaurant user_brand admin]
 end
