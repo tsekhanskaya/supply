@@ -14,11 +14,17 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    if can? :create, Product
+      @product = Product.new
+    else
+      render 'errors/not_found'
+    end
   end
 
   # GET /products/1/edit
-  def edit; end
+  def edit
+    render 'errors/not_found' unless can? :update, Product
+  end
 
   # POST /products or /products.json
   def create
