@@ -15,7 +15,7 @@ module Admin
     def destroy
       @user.destroy
       redirect_to fallback_location: root_path,
-                    notice: 'User was successfully deleted.'
+                  notice: 'User was successfully deleted.'
     end
 
     def update

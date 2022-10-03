@@ -10,4 +10,5 @@ class User < ApplicationRecord
          :validatable
 
   has_many :restaurants
+  has_many :brands
 end

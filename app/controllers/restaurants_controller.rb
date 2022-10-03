@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
+  before_action :check_for_user, only: %i[edit]
   before_action :set_restaurant, only: %i[show edit update destroy]
   before_action :current_restaurant
 
   # GET /restaurants
-  def index; end
+  def index;  end
 
   def current_restaurant
     @restaurants = if !current_user.user_restaurant?
@@ -20,11 +21,17 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/new
   def new
-    @restaurant = Restaurant.new
+    if can? :create, Restaurant
+      @restaurant = Restaurant.new
+    else
+      render 'errors/not_found'
+    end
   end
 
   # GET /restaurants/1/edit
-  def edit; end
+  def edit
+    render 'errors/not_found' unless can? :update, Restaurant
+  end
 
   # POST /restaurants
   def create
@@ -61,6 +68,10 @@ class RestaurantsController < ApplicationController
   end
 
   private
+
+  def check_for_user
+    redirect_to root_path, alert: 'You dont have access' unless current_user.user_restaurant or current_user.admin
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_restaurant

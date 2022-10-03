@@ -33,6 +33,7 @@ class BrandsController < ApplicationController
   # POST /brands
   def create
     @brand = Brand.new(brand_params)
+    @brand.user_id = current_user.id
 
     respond_to do |format|
       if @brand.save
