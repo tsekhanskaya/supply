@@ -18,7 +18,7 @@
       <div class="col-2 d-flex">
         <%= form_with model: item do |f| %>
           <%= f.hidden_field :product_id, value: item.product.id %>
-          <%= f.number_field :quantity, value: item.quantity.to_i, :class => "form-control form-control-sm mb-2" %>
+          <%= f.number_field :quantity, value: item.quantity.to_i, min: 1, :class => "form-control " %>
           <%= f.submit "Update Cart", :class => "btn btn-link text-success" %>
           </div>
           <div class="col-3 d-flex justify-content-center">

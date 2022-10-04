@@ -6,7 +6,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title text-center"><%= product.title %></h5>
-        <p class="card-text  text-center"><small><%= link_to"#{product.brand.title}", brand_path, :class => "text-muted" %></small></p>
+        <p class="card-text  text-center"><small><%= link_to"#{product.brand.title}", brand_path(product.brand.id), :class => "text-muted" %></small></p>
         <p class="card-text"><%= product.description %></p>
       </div>
       <div class="card-footer">
