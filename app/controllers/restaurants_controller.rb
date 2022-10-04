@@ -2,10 +2,10 @@
 
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show edit update destroy]
-  before_action :current_restaurant
+  before_action :current_restaurant, only: :index
 
   # GET /restaurants
-  def index;  end
+  def index; end
 
   def current_restaurant
     @restaurants = if !current_user.user_restaurant?
@@ -74,6 +74,6 @@ class RestaurantsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def restaurant_params
-    params.require(:restaurant).permit(:title, :description, :address, :img, :user_id)
+    params.require(:restaurant).permit(:title, :description, :house, :street, :city, :state, :country, :img, :user_id)
   end
 end

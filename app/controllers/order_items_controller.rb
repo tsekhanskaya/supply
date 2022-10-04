@@ -23,7 +23,6 @@ class OrderItemsController < ApplicationController
       session[:order_id] = @order.id
       redirect_back fallback_location: '/'
     end
-
   end
 
   def update

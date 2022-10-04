@@ -10,6 +10,7 @@
         </ul>
       </div>
     <% end %>
+
     <div class="col">
       <%= form.label :title, style: "display: block", :class => "form-label" %>
       <%= form.text_field :title, :placeholder => :title, :class => "form-control" %>
@@ -20,12 +21,36 @@
       <%= form.text_area :description, :class => "form-control", :placeholder => :description %>
     </div>
 
-    <div class="mb-3">
-      <%= form.label :address, style: "display: block", :class => "form-label" %>
-      <%= form.text_field :address, :class => "form-control", :placeholder => :address %>
+    <div class="row">
+      <div class="col mb-3">
+        <%= form.label :street, style: "display: block", :class => "form-label" %>
+        <%= form.text_field :street, :class => "form-control", :placeholder => :street %>
+      </div>
+
+      <div class="col mb-3">
+        <%= form.label :house, style: "display: block", :class => "form-label" %>
+        <%= form.text_field :house, :class => "form-control", :placeholder => :house %>
+      </div>
+
+      <div class="col mb-3">
+        <%= form.label :city, style: "display: block", :class => "form-label" %>
+        <%= form.text_field :city, :class => "form-control", :placeholder => :city %>
+      </div>
     </div>
 
-    <div class="mb-3">
+    <div class="row">
+      <div class="col mb-3">
+        <%= form.label :state, style: "display: block", :class => "form-label" %>
+        <%= form.text_field :state, :class => "form-control", :placeholder => :state %>
+      </div>
+
+      <div class="col mb-3">
+        <%= form.label :country, style: "display: block", :class => "form-label" %>
+        <%= form.text_field :country, :class => "form-control", :placeholder => :country %>
+      </div>
+    </div>
+
+    <div class="col mb-3">
       <%= form.label :img, style: "display: block", :class => "form-label" %>
       <%= form.text_field :img, :class => "form-control", :placeholder => "example.jpg / example.png" %>
     </div>

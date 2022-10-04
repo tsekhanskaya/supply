@@ -10,6 +10,13 @@
         <p class="card-text"><%= restaurant.description %></p>
         <p class="card-text"><small class="text-muted"><%= restaurant.address %></small></p>
       </div>
+      <div class="card-footer text-center">
+        <% if restaurant.latitude.nil? or restaurant.longitude.nil? %>
+          Нет координат
+        <% else %>
+          <iframe src="//maps.google.com/maps?q=<%= restaurant.latitude %>,<%= restaurant.longitude %>&z=16&output=embed" height="450" width="600"></iframe>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
