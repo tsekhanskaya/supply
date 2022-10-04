@@ -9,7 +9,6 @@ class Restaurant < ApplicationRecord
   validates :description, length: { maximum: 500 }, allow_blank: true
   validates :street, presence: true
   validates :city, presence: true
-  validates :state, presence: true
   validates :country, presence: true
   validates :img, presence: true
 
@@ -18,7 +17,11 @@ class Restaurant < ApplicationRecord
   belongs_to :user
 
   def address
-    [house, street, city, state, country].compact.join(', ')
+    if state.empty?
+      [house, street, city, country].compact.join(', ')
+    else
+      [house, street, city, state, country].compact.join(', ')
+    end
   end
 
   def address_changed?

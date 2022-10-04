@@ -1,17 +1,17 @@
-<%= form_with(model: restaurant) do |form| %>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <% if restaurant.errors.any? %>
+<%= form_with(model: @restaurant) do |form| %>
+  <div class="d-grid gap-2 col-6 mx-auto needs-validation novalidate">
+    <% if @restaurant.errors.any? %>
       <div class="alert alert-danger">
-        <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+        <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
         <ul>
-          <% restaurant.errors.each do |error| %>
+          <% @restaurant.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
       </div>
     <% end %>
 
-    <div class="col">
+    <div class="form-group mb-3">
       <%= form.label :title, style: "display: block", :class => "form-label" %>
       <%= form.text_field :title, :placeholder => :title, :class => "form-control" %>
     </div>
