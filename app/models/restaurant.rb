@@ -5,16 +5,17 @@ class Restaurant < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  validates :title, presence: true, length: { maximum: 150 }
-  validates :description, length: { maximum: 500 }, allow_blank: true
-  validates :street, presence: true
-  validates :city, presence: true
-  validates :country, presence: true
-  validates :img, presence: true
+  # validates :title, presence: true, length: { maximum: 150 }
+  # validates :description, length: { maximum: 500 }, allow_blank: true
+  # validates :street, presence: true
+  # validates :city, presence: true
+  # validates :country, presence: true
 
   has_many :orders
   has_many :products, through: :orders
   belongs_to :user
+
+  has_one_attached :img
 
   def address
     if state.nil? || state.empty?

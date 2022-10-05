@@ -22,4 +22,5 @@ import "controllers"
 
 //= require bootstrap-select
 
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'import "trix"
+import "@rails/actiontext"

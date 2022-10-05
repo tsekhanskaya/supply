@@ -24,6 +24,8 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'image_processing'
+
 gem 'geocoder'
 gem 'gmaps4rails'
 
