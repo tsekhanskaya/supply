@@ -17,7 +17,7 @@ class Restaurant < ApplicationRecord
   belongs_to :user
 
   def address
-    if state.empty?
+    if state.nil? || state.empty?
       [house, street, city, country].compact.join(', ')
     else
       [house, street, city, state, country].compact.join(', ')

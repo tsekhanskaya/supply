@@ -9,7 +9,7 @@
         <hr>
         <p class="card-text"><%= brand.description %></p>
         <p class="card-text"><small class="text-muted"><%= brand.address %></small></p>
-        <div class="card-footer">
+        <div class="card-footer text-center">
           <% if brand.latitude.nil? or brand.longitude.nil? %>
             Некорректные данные адреса. Не получены координаты.
           <% else %>
