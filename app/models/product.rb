@@ -10,5 +10,7 @@ class Product < ApplicationRecord
   has_many :restaurants, through: :orders
   has_many :order_items
 
+  has_one_attached :img
+
   accepts_nested_attributes_for :brand
 end

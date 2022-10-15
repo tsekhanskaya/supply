@@ -11,6 +11,8 @@ class Brand < ApplicationRecord
   validates :country, presence: true
   validates :img, presence: true
 
+  has_one_attached :img
+
   has_many :products, dependent: :destroy
   belongs_to :user
 

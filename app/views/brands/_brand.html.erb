@@ -1,22 +1,26 @@
 <div class="card mb-3">
   <div class="row g-0">
-    <div class="col-md-4">
-      <%= image_tag(brand.img, alt: "", class: "img-fluid rounded-start") %>
-    </div>
-    <div class="col-md-8">
+    <div class="col-7 md-8">
       <div class="card-body">
         <h5 class="card-title text-center"><%= brand.title %></h5>
         <hr>
         <p class="card-text"><%= brand.description %></p>
         <p class="card-text"><small class="text-muted"><%= brand.address %></small></p>
-        <div class="card-footer text-center">
-          <% if brand.latitude.nil? or brand.longitude.nil? %>
-            Некорректные данные адреса. Не получены координаты.
-          <% else %>
-            <iframe src="//maps.google.com/maps?q=<%= brand.latitude %>,<%= brand.longitude %>&z=16&output=embed" height="450" width="600"></iframe>
-          <% end %>
-        </div>
       </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <% if brand.img.attached?%>
+        <%= link_to(image_tag(brand.img, class: "img-fluid rounded-start"), brand) %>
+        <% else %>
+        <%= link_to(image_tag("no_image.jpg", class: "img-fluid rounded-start"), brand) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center col-5">
+      <% if brand.latitude.nil? or brand.longitude.nil? %>
+        Некорректные данные адреса. Не получены координаты.
+      <% else %>
+        <iframe class="w-100 h-100" src="//maps.google.com/maps?q=<%= brand.latitude %>,<%= brand.longitude %>&z=16&output=embed" height="450" width="600"></iframe>
+      <% end %>
     </div>
   </div>
 </div>

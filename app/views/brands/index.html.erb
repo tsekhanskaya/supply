@@ -19,7 +19,11 @@
               <div class="col brand-left p-left ">
                 <div class="card h-100">
                   <div class="brand-main">
-                    <%= link_to(image_tag(brand.img, alt: "", height: "180px", class: "img-responsive zoom-img"), brand) %>
+                    <% if brand.img.attached?%>
+                      <%= link_to(image_tag(brand.img, class: "img-fluid rounded-start"), brand) %>
+                    <% else %>
+                      <%= link_to(image_tag("no_image.jpg", class: "img-fluid rounded-start"), brand) %>
+                    <% end %>
                     <div class="brand-bottom">
                       <h3><%= brand.title %></h3>
                     </div>

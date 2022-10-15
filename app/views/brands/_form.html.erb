@@ -55,6 +55,11 @@
       </div>
     </div>
 
+    <div class="col mb-3">
+      <%= form.label :img, style: "display: block", :class => "form-label" %>
+      <%= form.file_field :img, :class => "form-control" %>
+    </div>
+
     <%= form.submit :class => "btn btn-outline-dark" %>
   </div>
 <% end %>

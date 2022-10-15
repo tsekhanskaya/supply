@@ -27,7 +27,12 @@
             <div class="col">
               <div class="card h-100">
                 <div class="card-body">
-                  <%= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
+                  <% if product.img.attached?%>
+                    <%= link_to(image_tag(product.img, height: "180px", class: "img-fluid rounded-start"), product) %>
+                  <% else %>
+                    <%= link_to(image_tag("no_image.jpg", height: "180px", class: "img-fluid rounded-start"), product) %>
+                  <% end %>
+                  <%#= link_to(image_tag(product.img, alt: "", height: "180px", class: "img-responsive zoom-img"), product) %>
                   <div class="product-bottom">
                     <h5><%= product.title %></h5>
                   </div>

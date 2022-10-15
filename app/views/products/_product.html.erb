@@ -1,7 +1,11 @@
 <div class="card mb-3">
   <div class="row g-0">
-    <div class="col-md-4">
-      <%= image_tag(product.img, alt: "", class: "img-fluid rounded-start") %>
+    <div class="d-flex align-items-center justify-content-center col-md-4">
+      <% if product.img.attached?%>
+        <%= link_to(image_tag(product.img, class: "rounded mx-auto d-block", height: "200px"), product) %>
+      <% else %>
+        <%= link_to(image_tag("no_image.jpg", class: "rounded mx-auto d-block", height: "180px"), product) %>
+      <% end %>
     </div>
     <div class="col-md-8">
       <div class="card-body">
