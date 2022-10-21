@@ -2,18 +2,20 @@
 
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show edit update destroy]
-  before_action :current_restaurant, only: :index
+  # before_action :current_restaurant, only: :index
 
   # GET /restaurants
-  def index; end
-
-  def current_restaurant
-    @restaurants = if !current_user.user_restaurant?
-                     Restaurant.all
-                   else
-                     Restaurant.where(user_id: current_user.id)
-                   end
+  def index;
+    @restaurants = Restaurant.all
   end
+
+  # def current_restaurant
+  #   @restaurants = if !current_user.user_restaurant?
+  #                    Restaurant.all
+  #                  else
+  #                    Restaurant.where(user_id: current_user.id)
+  #                  end
+  # end
 
   # GET /restaurants/1
   def show; end

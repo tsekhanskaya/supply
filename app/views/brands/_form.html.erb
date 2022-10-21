@@ -17,7 +17,7 @@
       </div>
       <div class="col">
         <%= form.label :img, style: "display: block", :class => "form-label" %>
-        <%= form.text_field :img, :placeholder => "example.jpg / example.png",:class => "form-control"%>
+        <%= form.file_field :img, :class => "form-control" %>
       </div>
     </div>
 
@@ -53,11 +53,6 @@
         <%= form.label :country, style: "display: block", :class => "form-label" %>
         <%= form.text_field :country, :class => "form-control", :placeholder => :country %>
       </div>
-    </div>
-
-    <div class="col mb-3">
-      <%= form.label :img, style: "display: block", :class => "form-label" %>
-      <%= form.file_field :img, :class => "form-control" %>
     </div>
 
     <%= form.submit :class => "btn btn-outline-dark" %>

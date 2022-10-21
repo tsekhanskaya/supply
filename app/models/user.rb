@@ -11,4 +11,9 @@ class User < ApplicationRecord
 
   has_many :restaurants
   has_many :brands
+
+  def brands
+    Brand.where(user_id: self.id)
+  end
+  # current_user.brands
 end

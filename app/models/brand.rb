@@ -27,4 +27,8 @@ class Brand < ApplicationRecord
   def address_changed?
     house_changed? || street_changed? || city_changed? || state_changed? || country_changed?
   end
+
+  def products
+    Product.where(brand_id: self.id)
+  end
 end
