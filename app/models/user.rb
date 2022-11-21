@@ -13,7 +13,6 @@ class User < ApplicationRecord
   has_many :brands
 
   def brands
-    Brand.where(user_id: self.id)
+    Brand.where(user_id: id)
   end
-  # current_user.brands
 end

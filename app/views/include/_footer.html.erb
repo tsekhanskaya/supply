@@ -2,10 +2,10 @@
   <div class="footer">
     <footer class="">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Главная</a></li>
-        <li><%= link_to "Продукты", products_path, :class => 'nav-link px-2 text-muted' %></li>
-        <li><%= link_to "Поставщики", brands_path, :class => 'nav-link px-2 text-muted' %></li>
-        <li><%= link_to "Рестораны", restaurants_path, :class => 'nav-link px-2 text-muted' %></li>
+        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted"><%= t("include.main") %></a></li>
+        <li><%= link_to t("include.products"), products_path, :class => 'nav-link px-2 text-muted' %></li>
+        <li><%= link_to t("include.brands"), brands_path, :class => 'nav-link px-2 text-muted' %></li>
+        <li><%= link_to t("include.restaurants"), restaurants_path, :class => 'nav-link px-2 text-muted' %></li>
       </ul>
       <p class="text-center text-muted">© 2022 Company, Inc</p>
     </footer>

@@ -1,0 +1,23 @@
+ru:
+  include:
+    main: "Главная"
+    products: "Продукты"
+    brands: "Поставщики"
+    restaurants: "Рестораны"
+    language: "Язык"
+    notes_account: "Вы вошли как "
+    edit_account: "Редактирование аккаунта"
+    manager: "Менеджер аккаунтов"
+    cart: "Корзина"
+    login: "Зарегистрироваться"
+    sign_in: "Войти"
+    sign_out: "Выйти"
+
+    global:
+      forms:
+        submit: "Отправить"
+
+  products:
+    forms:
+      title: "Название продукта"
+      brand_id: ""

@@ -2,31 +2,37 @@
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/" class="btn btn-active-light-dark text-white"><strong>Главная</strong></a></li>
-        <%= link_to "Продукты", products_path, :class => 'btn btn-active-light-dark text-secondary' %>
-        <%= link_to "Поставщики", brands_path, :class => 'btn btn-active-light-dark text-secondary' %>
-        <%= link_to "Рестораны", restaurants_path, :class => 'btn btn-active-light-dark text-secondary' %>
+        <li><a href="/" class="btn btn-active-light-dark text-white" ><strong><%= t("include.main")%></strong></a></li>
+        <%= link_to t('include.products'), products_path, :class => 'btn btn-active-light-dark text-secondary' %>
+        <%= link_to t('include.brands'), brands_path, :class => 'btn btn-active-light-dark text-secondary' %>
+        <%= link_to t('include.restaurants'), restaurants_path, :class => 'btn btn-active-light-dark text-secondary' %>
+      </ul>
+
+      <a class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false"><%= t('include.language')%></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'English', root_path(locale: :en), :class => 'dropdown-item' %></li>
+        <li><%= link_to 'Русский', root_path(locale: :ru), :class => 'dropdown-item' %></li>
       </ul>
 
       <div class="navbar-nav flex-row ms-md-auto">
           <% if user_signed_in? %>
-          <a class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false">Вы вошли как <strong><%= current_user.email %></strong></a>
+          <a class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false"><%= t('include.notes_account')%> <strong><%= current_user.email %></strong></a>
           <ul class="dropdown-menu">
             <li>
-              <%= link_to "Редактирование аккаунта", edit_user_registration_path, :class => 'dropdown-item' %>
+              <%= link_to t("include.edit_account"), edit_user_registration_path, :class => 'dropdown-item' %>
             </li>
             <% if can? :users_managing, User %>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <%= link_to "Менеджер аккаунтов",admin_manage_for_users_path, :class => 'dropdown-item' %>
+                <%= link_to t("include.manager"),admin_manage_for_users_path, :class => 'dropdown-item' %>
               </li>
             <% end %>
           </ul>
-          <%= link_to "Корзина", cart_path, :class => 'btn btn-warning text-black mx-1' %>
-            <%= link_to "Выйти", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light mx-1" %>
+          <%= link_to t("include.cart"), cart_path, :class => 'btn btn-warning text-black mx-1' %>
+            <%= link_to t("include.sign_out"), destroy_user_session_path, method: :delete, :class => "btn btn-outline-light mx-1" %>
           <% else %>
-            <%= link_to "Регистрация", new_user_registration_path, :class => 'btn btn-warning text-black mx-1'  %>
-            <%= link_to "Войти", new_user_session_path, :class => 'btn btn-outline-light mx-1'%>
+            <%= link_to t("include.login"), new_user_registration_path, :class => 'btn btn-warning text-black mx-1'  %>
+            <%= link_to t("include.sign_in"), new_user_session_path, :class => 'btn btn-outline-light mx-1'%>
           <% end %>
       </div>
     </div>

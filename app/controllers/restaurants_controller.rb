@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
   # before_action :current_restaurant, only: :index
 
   # GET /restaurants
-  def index;
+  def index
     @restaurants = Restaurant.all
   end
 

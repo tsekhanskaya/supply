@@ -29,6 +29,6 @@ class Brand < ApplicationRecord
   end
 
   def products
-    Product.where(brand_id: self.id)
+    Product.where(brand_id: id)
   end
 end
