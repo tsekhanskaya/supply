@@ -13,8 +13,15 @@ en:
     sign_in: "Sign in"
     sign_out: "Sign out"
 
-  global:
-    forms:
-      submit: "Submit"
+  forms:
+    submit: "Submit"
+    edit: "Edit"
+    destroy: "Destroy"
 
   products:
+    title: "Title"
+    brand_id: "Brand's ID"
+    price: "Price"
+    description: "Description"
+    img: "Image"
+    add_to_cart: "Add to Cart"

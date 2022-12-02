@@ -27,7 +27,7 @@ class BrandsController < ApplicationController
 
   # GET /brands/1/edit
   def edit
-    render 'errors/not_found' unless can? :update, Brand
+    # render 'errors/not_found' unless can? :update, Brand
   end
 
   # POST /brands

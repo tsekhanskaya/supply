@@ -13,11 +13,15 @@ ru:
     sign_in: "Войти"
     sign_out: "Выйти"
 
-    global:
-      forms:
-        submit: "Отправить"
+  forms:
+    submit: "Отправить"
+    edit: "Редактировать"
+    destroy: "Удалить"
 
   products:
-    forms:
-      title: "Название продукта"
-      brand_id: ""
+    title: "Название продукта"
+    brand_id: "Идентификационный номер поставщика"
+    price: "Цена"
+    description: "Описание"
+    img: "Картинка"
+    add_to_cart: "В корзину"
