@@ -27,18 +27,18 @@
         <%= user.id %>
       </div>
       <div class="col d-flex justify-content-center">
-        <h6 class="text-black mb-0"><%= link_to "#{user.email}", "/admin/users/edit/#{user.id}"%></h6>
+        <h6 class="text-black mb-0"><%= link_to "#{user.email}", "/admin/user/#{user.id}"%></h6>
       </div>
       <div class="col d-flex justify-content-center">
         <h6 class="mb-0">
           <% if user.admin %>
-              Admin
+              <%= link_to "Admin", "/admin/users/edit/#{user.id}"%>
             <% elsif user.user_restaurant %>
-              Restaurant User
+                <%= link_to "Restaurant User", "/admin/users/edit/#{user.id}"%>
             <% elsif user.user_brand %>
-              Brand User
+                <%= link_to "Brand User", "/admin/users/edit/#{user.id}"%>
             <% else %>
-              No Role
+                <%= link_to "No Role", "/admin/users/edit/#{user.id}"%>
             <% end %>
           </h6>
       </div>

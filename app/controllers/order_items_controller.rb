@@ -9,7 +9,7 @@ class OrderItemsController < ApplicationController
         @order_item.quantity += order_params[:quantity].to_i
         @order_items = current_order.order_items if @order_item.save
       else
-         @order_items = @order.order_items.new(order_params)
+        @order_items = @order.order_items.new(order_params)
       end
       @order.save
       redirect_back fallback_location: '/'
