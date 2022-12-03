@@ -20,7 +20,7 @@ class Ability
     can %i[read create], Product if user.user_brand
     can %i[update destroy], Product if user.user_brand
     # can %i[update destroy], current_user.brands.products if user.user_brand
-    can %i[update destroy], user.brands.products if user.user_brand
+    # can %i[update destroy], user.brands if user.user_brand
     can :update, OrderItem if user.user_brand
     can :read, Restaurant if user.user_brand
   end

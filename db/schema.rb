@@ -12,7 +12,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 20_221_123_130_444) do
+=======
+ActiveRecord::Schema[7.0].define(version: 20_221_005_105_101) do
+>>>>>>> main
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -88,8 +92,11 @@ ActiveRecord::Schema[7.0].define(version: 20_221_123_130_444) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'status_id', default: 1
+<<<<<<< HEAD
     t.bigint 'user_id'
     t.index ['user_id'], name: 'index_orders_on_user_id'
+=======
+>>>>>>> main
   end
 
   create_table 'products', force: :cascade do |t|
@@ -143,5 +150,8 @@ ActiveRecord::Schema[7.0].define(version: 20_221_123_130_444) do
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
+<<<<<<< HEAD
   add_foreign_key 'orders', 'users'
+=======
+>>>>>>> main
 end
