@@ -10,6 +10,12 @@ module Admin
       @users = User.all
     end
 
+    def show
+      Order.where(status_id: 2, user_id: @user.id).each do
+        @order_items = @order.order_items
+      end
+    end
+
     def edit; end
 
     def destroy

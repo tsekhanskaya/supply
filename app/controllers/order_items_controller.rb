@@ -3,24 +3,15 @@
 class OrderItemsController < ApplicationController
   before_action :set_order
   def create
-    # @order_items = @order.order_items.new(order_params)
-    # @order_items ||= OrderItem.find_by(:product_id).presence || @order.order_items.new(order_params)
-
-    # if @order.order_items.find_by(params[:product_id])
-    #   p @order.order_items.find_by(params[:product_id])
-    #   p '----------------'
-    #   @order_item = @order.order_items.find_by(params[:product_id])
-    #   @order_item.assign_attributes(order_params)
-    #   @order_items = current_order.order_items if @order_item.save
-    # else
-    #   @order_items = @order.order_items.new(order_params)
-    #   @order.save
-    #   session[:order_id] = @order.id
-    # end
     if can? :create, OrderItem
-      @order_items = @order.order_items.new(order_params)
+      if @order.order_items.find_by(product_id: order_params[:product_id])
+        @order_item = @order.order_items.find_by(product_id: order_params[:product_id])
+        @order_item.quantity += order_params[:quantity].to_i
+        @order_items = current_order.order_items if @order_item.save
+      else
+        @order_items = @order.order_items.new(order_params)
+      end
       @order.save
-      session[:order_id] = @order.id
       redirect_back fallback_location: '/'
     end
   end

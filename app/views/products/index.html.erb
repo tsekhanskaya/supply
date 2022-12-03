@@ -17,6 +17,7 @@
         <h3>There's no products...</h3>
       <% else %>
         <div style="text-align:center">
+          <div class="mb-3"> <%= render "search_form", products: @products %> </div>
           <div class="row row-cols-3 g-3">
             <% @products.each do |product| %>
               <div class="col">
@@ -41,6 +42,7 @@
                             </div>
                             <div class="col col-4">
                               <%= item.hidden_field :product_id, value: product.id %>
+                              <%#= item.quantity = 1 %>
                               <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control " %></p>
                             </div>
                             <div class="col">
