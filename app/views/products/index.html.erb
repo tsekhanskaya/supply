@@ -16,8 +16,8 @@
       <% if @products.empty? %>
         <h3>There's no products...</h3>
       <% else %>
+        <%= render "search_form", products: @products %>
         <div style="text-align:center">
-          <div class="mb-3"> <%= render "search_form", products: @products %> </div>
           <div class="row row-cols-3 g-3">
             <% @products.each do |product| %>
               <div class="col">

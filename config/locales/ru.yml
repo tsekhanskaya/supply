@@ -17,6 +17,7 @@ ru:
     submit: "Отправить"
     edit: "Редактировать"
     destroy: "Удалить"
+    search: "Поиск..."
 
   products:
     title: "Название продукта"
@@ -25,3 +26,4 @@ ru:
     description: "Описание"
     img: "Картинка"
     add_to_cart: "В корзину"
+    search_products: "Поиск продукта..."

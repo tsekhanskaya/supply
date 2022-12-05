@@ -17,6 +17,7 @@ en:
     submit: "Submit"
     edit: "Edit"
     destroy: "Destroy"
+    search: "Search..."
 
   products:
     title: "Title"
@@ -25,3 +26,4 @@ en:
     description: "Description"
     img: "Image"
     add_to_cart: "Add to Cart"
+    search_products: "Search of Products..."
