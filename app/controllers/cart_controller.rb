@@ -7,9 +7,13 @@ class CartController < ApplicationController
 
   # change status
   def update
-    current_order.status_id = current_order.status_id + 1
-    current_order.save
-    redirect_to cart_url(@current_order), notice: 'Order was successfully confirmed.'
+    if !current_order.order_items
+      current_order.status_id = current_order.status_id + 1
+      current_order.save
+      redirect_to cart_url(@current_order), notice: 'Order was successfully confirmed.'
+    else
+      redirect_to cart_url(@current_order), alert: 'Cart is empty.'
+    end
   end
 
   def destroy
