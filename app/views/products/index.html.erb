@@ -5,7 +5,7 @@
         <hr class="mt-0">
         <% if can? :create, Product  %>
           <% if @products.empty? %>
-            <p>Пожалуйста, сначала создайте Поставщика</p>
+            <p>Результат поиска отрицательный. Создайте продукт</p>
           <% end %>
           <%= link_to "New product", new_product_path %>
         <% else %>
@@ -13,10 +13,18 @@
         <% end %>
         <hr>
       </div>
+      <%= render "search_form", products: @products %>
       <% if @products.empty? %>
         <h3>There's no products...</h3>
       <% else %>
-        <%= render "search_form", products: @products %>
+        <div class="d-grid gap-2 col-5 mx-auto">
+          <div class="row mb-3">
+            <div class="col"><%= t('sort') %></div>
+            <div class="col"><%= sort_link(@q, :title, t("products.title"), default_order: :desc) %></div>
+            <div class="col"><%= sort_link(@q, :price, t("products.price"), default_order: :desc) %></div>
+<!--            <div class="col"><%#= sort_link(@q, :brand_title, t("products.brand"), default_order: :desc) %></div>-->
+          </div>
+        </div>
         <div style="text-align:center">
           <div class="row row-cols-3 g-3">
             <% @products.each do |product| %>
@@ -31,6 +39,7 @@
                     <div class="product-bottom">
                       <h5><%= product.title %></h5>
                     </div>
+                    <p class="card-text  text-center"><small><%= link_to"#{product.brand.title}", brand_path(product.brand.id), :class => "text-muted" %></small></p>
                   </div>
                   <% if can? :create, OrderItem %>
                     <div class="card-footer">

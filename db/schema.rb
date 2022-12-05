@@ -12,11 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 20_221_123_130_444) do
-=======
-ActiveRecord::Schema[7.0].define(version: 20_221_005_105_101) do
->>>>>>> main
+ActiveRecord::Schema[7.0].define(version: 20_221_205_123_120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -92,21 +88,19 @@ ActiveRecord::Schema[7.0].define(version: 20_221_005_105_101) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'status_id', default: 1
-<<<<<<< HEAD
     t.bigint 'user_id'
     t.index ['user_id'], name: 'index_orders_on_user_id'
-=======
->>>>>>> main
   end
 
   create_table 'products', force: :cascade do |t|
-    t.integer 'brand_id'
     t.string 'title', default: 'No title'
     t.float 'price', default: 0.0
     t.text 'description', default: 'No description'
     t.string 'img', default: 'no_image.jpg'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.bigint 'brand_id', null: false
+    t.index ['brand_id'], name: 'index_products_on_brand_id'
   end
 
   create_table 'restaurants', force: :cascade do |t|
@@ -150,8 +144,6 @@ ActiveRecord::Schema[7.0].define(version: 20_221_005_105_101) do
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
-<<<<<<< HEAD
   add_foreign_key 'orders', 'users'
-=======
->>>>>>> main
+  add_foreign_key 'products', 'brands'
 end

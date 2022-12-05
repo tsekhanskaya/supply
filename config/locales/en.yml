@@ -19,9 +19,12 @@ en:
     destroy: "Destroy"
     search: "Search..."
 
+  sort: "Sort by:"
+
   products:
     title: "Title"
     brand_id: "Brand's ID"
+    brand: "Brand"
     price: "Price"
     description: "Description"
     img: "Image"
