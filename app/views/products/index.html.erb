@@ -22,10 +22,9 @@
             <div class="col"><%= t('sort') %></div>
             <div class="col"><%= sort_link(@q, :title, t("products.title"), default_order: :desc) %></div>
             <div class="col"><%= sort_link(@q, :price, t("products.price"), default_order: :desc) %></div>
-<!--            <div class="col"><%#= sort_link(@q, :brand_title, t("products.brand"), default_order: :desc) %></div>-->
-          </div>
+<!--            <div class="col"><%#= sort_link(@q, :brand_title, t("products.brand"), default_order: :asc) %></div>-->
+            <div style="text-align:center"> </div>
         </div>
-        <div style="text-align:center">
           <div class="row row-cols-3 g-3">
             <% @products.each do |product| %>
               <div class="col">
@@ -51,7 +50,6 @@
                             </div>
                             <div class="col col-4">
                               <%= item.hidden_field :product_id, value: product.id %>
-                              <%#= item.quantity = 1 %>
                               <p class="card-text"><%= item.number_field :quantity, value: 1, min: 1, :class => "form-control " %></p>
                             </div>
                             <div class="col">
