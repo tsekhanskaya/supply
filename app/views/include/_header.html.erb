@@ -10,8 +10,10 @@
 
       <a class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false"><%= t('include.language')%></a>
       <ul class="dropdown-menu">
-        <li><%= link_to 'English', root_path(locale: :en), :class => 'dropdown-item' %></li>
-        <li><%= link_to 'Русский', root_path(locale: :ru), :class => 'dropdown-item' %></li>
+<!--        <li><%#= link_to 'English', root_path(locale: :en), :class => 'dropdown-item' %></li>-->
+<!--        <li><%#= link_to 'Русский', root_path(locale: :ru), :class => 'dropdown-item' %></li>-->
+          <li><%= link_to 'English', "#{request.path}?#{request.query_parameters.merge(locale: :en).to_param}", class: 'dropdown-item' %></li>
+          <li><%= link_to 'Русский', "#{request.path}?#{request.query_parameters.merge(locale: :ru).to_param}", class: 'dropdown-item' %></li>
       </ul>
 
       <div class="navbar-nav flex-row ms-md-auto">

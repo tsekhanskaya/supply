@@ -1,4 +1,7 @@
 en:
+  submit: "Submit"
+  edit: "Edit"
+  destroy: "Destroy"
   include:
     main: "Main"
     products: "Products"
@@ -30,3 +33,6 @@ en:
     img: "Image"
     add_to_cart: "Add to Cart"
     search_products: "Search of Products..."
+    new_product: "Add new product"
+    error: "prohibited this product from being saved"
+    new_product_header: "New product"

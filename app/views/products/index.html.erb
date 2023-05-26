@@ -7,7 +7,7 @@
           <% if @products.empty? %>
             <p>Результат поиска отрицательный. Создайте продукт</p>
           <% end %>
-          <%= link_to "New product", new_product_path %>
+          <%= link_to t('products.new_product'), new_product_path %>
         <% else %>
           <h5 class="card-title text-center"><%= t('include.products') %></h5>
         <% end %>

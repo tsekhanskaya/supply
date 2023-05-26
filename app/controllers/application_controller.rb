@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   around_action :switch_locale
 
   def switch_locale(&action)
-    locale = params[:locale] || I18n.default_locale
+    locale = params[:locale] || session[:locale] || I18n.default_locale
+    session[:locale] = locale
     I18n.with_locale(locale, &action)
   end
 
@@ -17,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(_resource)
-    root_path # or any other path
+    root_path
   end
 
   def after_sign_out_path_for(_resource_or_scope)
