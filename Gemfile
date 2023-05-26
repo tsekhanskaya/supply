@@ -6,7 +6,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.3'
 
 gem 'activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
@@ -15,6 +14,7 @@ gem 'chartkick'
 gem 'devise'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'importmap-rails'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'jbuilder'
 gem 'numo-narray'
 gem 'pg', '~> 1.1'
