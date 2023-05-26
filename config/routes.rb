@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   # match "/500", to: "errors#internal_server_error", via: :all
 
   resources :order_items
+  # resources :car
   get 'cart', to: 'cart#show'
   put 'cart', to: 'cart#update'
-
+  get 'cart/recs', to: 'cart#recs', as: 'cart_recs'
+  # post 'analyze', to: 'cart#analyze'
+  post 'analyze', to: 'cart#analyze', as: 'analyze'
   resources :restaurants
   resources :brands
 

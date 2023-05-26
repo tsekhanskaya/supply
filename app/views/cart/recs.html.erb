@@ -1,0 +1,13 @@
+<h1>Products</h1>
+
+<%= pie_chart @data, title: 'Product Sales' %>
+
+<%= form_with(url: analyze_path, method: :post) do |form| %>
+  <% @products.each do |product| %>
+    <div>
+      <%= form.check_box :product_ids, { multiple: true }, product.id, nil %>
+      <%= form.label "product_ids_#{product.id}", product.title %>
+    </div>
+  <% end %>
+  <%= form.submit 'Analyze' %>
+<% end %>
