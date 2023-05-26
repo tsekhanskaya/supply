@@ -31,7 +31,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1/edit
   def edit
-    render 'errors/not_found' unless can? :update, Restaurant
+    # render 'errors/not_found' unless can? :update, Restaurant
   end
 
   # POST /restaurants

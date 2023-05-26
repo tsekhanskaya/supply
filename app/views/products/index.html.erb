@@ -9,7 +9,7 @@
           <% end %>
           <%= link_to "New product", new_product_path %>
         <% else %>
-          <h5 class="card-title text-center">Продукты</h5>
+          <h5 class="card-title text-center"><%= t('include.products') %></h5>
         <% end %>
         <hr>
       </div>
@@ -23,8 +23,10 @@
             <div class="col"><%= sort_link(@q, :title, t("products.title"), default_order: :desc) %></div>
             <div class="col"><%= sort_link(@q, :price, t("products.price"), default_order: :desc) %></div>
 <!--            <div class="col"><%#= sort_link(@q, :brand_title, t("products.brand"), default_order: :asc) %></div>-->
-            <div style="text-align:center"> </div>
+
+          </div>
         </div>
+        <div style="text-align:center">
           <div class="row row-cols-3 g-3">
             <% @products.each do |product| %>
               <div class="col">
@@ -66,6 +68,7 @@
           </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

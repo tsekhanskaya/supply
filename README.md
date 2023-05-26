@@ -1,24 +1,32 @@
-# README
+# SUPPLY
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+Application for placing orders for the supply of the restaurant. The application has two users: main and administrator.
 
-* Ruby version
+* Database: PostgreSQL 15.1
+* Programming Language: Ruby (3.0.3)
+* Development Framework: Ruby on Rails (7.0.3.1)
+* Gems: devise, cancancan, pg, ransack, geocoder, gmaps4rails
 
-* System dependencies
+## Installation and Setup
 
-* Configuration
+1. Clone the repository to your local machine.
 
-* Database creation
+    ```git clone {web_URL_repository}.```
 
-* Database initialization
+2. Install the necessary dependencies by running the command:
 
-* How to run the test suite
+    ```bundle install```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Create the PostgreSQL database and configure the database access in the ```config/database.yml``` file.
 
-* Deployment instructions
+4. Run the database migrations:
 
-* ...
+    ```rails db:migrate```
+
+5. Start the application:
+
+    ```rails server```
+
+6. Open your browser and navigate to http://localhost:3000 to access the application

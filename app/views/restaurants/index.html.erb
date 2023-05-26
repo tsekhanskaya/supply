@@ -4,7 +4,7 @@
       <% if can? :create, Restaurant %>
         <%= link_to "New restaurant", new_restaurant_path %>
       <% else %>
-        <h5 class="card-title text-center">Рестораны</h5>
+        <h5 class="card-title text-center"><%= t('include.restaurants')%></h5>
       <% end %>
     <hr>
   </div>

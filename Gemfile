@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-select-rails'
 gem 'cancancan'
 gem 'devise'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'

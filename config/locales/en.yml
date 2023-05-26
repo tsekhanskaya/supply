@@ -9,8 +9,8 @@ en:
     edit_account: "Edit account"
     manager: "Account manager"
     cart: "Cart"
-    login: "Login"
-    sign_in: "Sign in"
+    login: "Log in"
+    sign_up: "Sign up"
     sign_out: "Sign out"
 
   forms:
