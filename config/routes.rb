@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -17,14 +19,14 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :brands
 
-  namespace :admin do
-    get 'user/:id', to: 'users#show'
-    get 'users/edit/:id', to: 'users#edit'
-    post 'users/edit/:id', to: 'users#update'
-    put 'users/edit/:id', to: 'users#update'
-    delete 'user/:id', to: 'users#destroy'
-    get 'manage-for-users', to: 'users#users_managing'
-  end
+  # namespace :admin do
+  #   get 'user/:id', to: 'users#show'
+  #   get 'users/edit/:id', to: 'users#edit'
+  #   post 'users/edit/:id', to: 'users#update'
+  #   put 'users/edit/:id', to: 'users#update'
+  #   delete 'user/:id', to: 'users#destroy'
+  #   get 'manage-for-users', to: 'users#users_managing'
+  # end
 
   devise_for :users
 
