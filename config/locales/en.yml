@@ -93,4 +93,6 @@ en:
     top_products: "Product Sales"
     statistic: "Statistic"
     cart_updated: "Cart updated"
+    cart_empty: 'Cart is empty.'
+
 

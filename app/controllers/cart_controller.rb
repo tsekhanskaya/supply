@@ -19,11 +19,11 @@ class CartController < ApplicationController
   # change status
   def update
     if current_order.order_items.empty?
-      redirect_to cart_url(@current_order), alert: 'Cart is empty.'
+      redirect_to cart_url(@current_order), alert: t('cart.cart_empty')
     else
       current_order.status_id = current_order.status_id + 1
       current_order.save
-      redirect_to cart_url(@current_order), notice: 'Order was successfully confirmed.'
+      redirect_to cart_url(@current_order), notice: t('cart.alert')
     end
   end
 
@@ -42,7 +42,8 @@ class CartController < ApplicationController
 
     result = []
     products.each do |product|
-      amount = product.order_items.pluck(:quantity)
+      # amount = product.order_items.pluck(:quantity)
+      amount = product.order_items.joins(:order).where.not('orders.status_id = ?', 1).pluck(:quantity)
       ema = calculate_ema(amount, 10) # Replace 10 with your desired EMA period
 
       overall = product.price * ema

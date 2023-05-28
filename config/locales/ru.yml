@@ -94,3 +94,4 @@ ru:
     top_products: "Топ-5 товаров"
     statistic: "Статистика"
     cart_updated: "Корзина обновлена"
+    cart_empty: 'Корзина пуста.'
