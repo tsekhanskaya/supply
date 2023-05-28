@@ -30,7 +30,7 @@ en:
 
   products:
     title: "Title"
-    brand_id: "Brand's ID"
+    brand_id: "Brand"
     brand: "Brand"
     price: "Price"
     description: "Description"
@@ -42,6 +42,7 @@ en:
     new_product_header: "New product"
     create: 'Product was successfully created.'
     destroy: 'Product was successfully destroyed.'
+    category: "Category"
 
   brands:
     title: "Title"

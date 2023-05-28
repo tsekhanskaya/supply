@@ -13,6 +13,7 @@ gem 'cancancan'
 gem 'chartkick'
 gem 'devise'
 gem 'dotenv-rails', groups: %i[development test]
+gem 'faker'
 gem 'importmap-rails'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'jbuilder'

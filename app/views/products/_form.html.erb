@@ -12,8 +12,8 @@
     <% end %>
     <div class="row mb-3">
       <div class="col">
-        <%= form.label t('products.title'), style: "display: block", :class => "form-label"%>
-        <%= form.text_field :title, :class => "form-control", :placeholder => :title%>
+        <%= form.label t('products.category'), style: "display: block", :class => "form-label"%>
+        <%= form.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, :class => "form-select" %>
       </div>
       <div class="col">
         <%= form.label t('products.brand_id'), style: "display: block", :class => "form-label"%>
@@ -21,9 +21,16 @@
       </div>
     </div>
 
-    <div class="mb-3">
-      <%= form.label t('products.price'), style: "display: block", :class => "form-label" %>
-      <%= form.text_field :price, :class => "form-control", :placeholder => "0.0"%>
+    <div class="row mb-3">
+      <div class="col">
+        <%= form.label t('products.title'), style: "display: block", :class => "form-label"%>
+        <%= form.text_field :title, :class => "form-control", :placeholder => :title%>
+      </div>
+      <div class="col">
+        <%= form.label t('products.price'), style: "display: block", :class => "form-label" %>
+        <%= form.text_field :price, :class => "form-control", :placeholder => "0.0"%>
+      </div>
+
     </div>
 
     <div class="mb-3">

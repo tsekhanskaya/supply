@@ -132,6 +132,8 @@ GEM
       railties (>= 3.2)
     erubi (1.11.0)
     execjs (2.8.1)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
@@ -342,6 +344,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  faker
   geocoder
   gmaps4rails
   image_processing
