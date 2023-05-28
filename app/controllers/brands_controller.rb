@@ -60,7 +60,7 @@ class BrandsController < ApplicationController
     @brand.destroy
 
     respond_to do |format|
-      format.html { redirect_to brands_url, notice: t('brands.destroy')}
+      format.html { redirect_to brands_url, notice: t('brands.destroy') }
     end
   end
 

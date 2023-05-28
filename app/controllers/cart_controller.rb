@@ -68,30 +68,15 @@ class CartController < ApplicationController
     end
 
     pdf = generate_pdf(result)
-    send_data pdf.render, filename: 'analysis_report_.pdf', type: 'application/pdf', disposition: 'inline'
-  end
-
-  def create_items_in_cart
-    selected_product_ids = params[:product_ids] || []
-    products = Product.where(id: selected_product_ids)
-
-    products.each do |product|
-      if current_order.order_items.find_by(product_id: product.id)
-        order_item = current_order.order_items.find_by(product_id: product.id)
-        order_item.quantity =
-        order_item.save
-      else
-        current_order.order_items.create(product: product, quantity: 1)
-      end
-    end
-
-    redirect_to cart_path, notice: t('cart.cart_updated')
+    send_data pdf.render, filename: 'analysis_report_.pdf', type: 'application/pdf', disposition: 'inline',
+                          notice: t('cart.cart_updated')
   end
 
   private
 
   def calculate_ema(counts, period)
     return 0 if counts.empty?
+
     alpha = 2.0 / (period + 1)
     narray_prices = Numo::DFloat.cast(counts)
     ema_values = Numo::NMath.exp(Numo::NMath.log(narray_prices).cumsum * alpha)
@@ -107,9 +92,10 @@ class CartController < ApplicationController
     )
     pdf.font 'CyrillicFont'
     current_time = Time.now
-    formatted_time = current_time.strftime("%d.%m.%Y %H:%M")
-    pdf.text "#{formatted_time}"
-    table_data = [[t('cart.table.product'), t('cart.table.original_price'),t('cart.table.ema'), t('cart.table.overall'), t('cart.table.contacts')]]
+    formatted_time = current_time.strftime('%d.%m.%Y %H:%M')
+    pdf.text formatted_time.to_s
+    table_data = [[t('cart.table.product'), t('cart.table.original_price'), t('cart.table.ema'),
+                   t('cart.table.overall'), t('cart.table.contacts')]]
 
     total_price = 0
 
