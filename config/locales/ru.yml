@@ -95,3 +95,4 @@ ru:
     statistic: "Статистика"
     cart_updated: "Корзина обновлена"
     cart_empty: 'Корзина пуста.'
+    delivery_datetime: "Дата доставки"

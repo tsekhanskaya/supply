@@ -75,7 +75,7 @@ en:
     summary: "Summary"
     no_products: "There is no products..."
     total_price: "Total price"
-    confirm_order: "Conform Order"
+    confirm_order: "Confirm Order"
     alert: 'Order was successfully confirmed.'
     item:
       few: "%{count} item"
@@ -94,5 +94,6 @@ en:
     statistic: "Statistic"
     cart_updated: "Cart updated"
     cart_empty: 'Cart is empty.'
+    delivery_datetime: 'Delivery datetime'
 
 
