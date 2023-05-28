@@ -76,6 +76,7 @@ en:
     no_products: "There is no products..."
     total_price: "Total price"
     confirm_order: "Conform Order"
+    alert: 'Order was successfully confirmed.'
     item:
       few: "%{count} item"
       many: "%{count} items"
@@ -89,4 +90,7 @@ en:
       contacts: "Contacts"
       total_price: "Total price"
       manager: "Manager of supply"
+    top_products: "Product Sales"
+    statistic: "Statistic"
+    cart_updated: "Cart updated"
 

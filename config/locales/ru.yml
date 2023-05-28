@@ -77,6 +77,7 @@ ru:
     no_products: "Здесь нет продуктов..."
     total_price: "Итоговая цена"
     confirm_order: "Подтвердить заказ"
+    alert: 'Заказ подтвержден'
     item:
       one: "%{count} товар"
       few: "%{count} товара"
@@ -90,4 +91,6 @@ ru:
       contacts: "Контакты поставщика"
       total_price: "Итоговая сумма"
       manager: "Менеджер поставки"
-
+    top_products: "Топ-5 товаров"
+    statistic: "Статистика"
+    cart_updated: "Корзина обновлена"

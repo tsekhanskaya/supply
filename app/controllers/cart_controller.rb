@@ -42,27 +42,60 @@ class CartController < ApplicationController
 
     result = []
     products.each do |product|
-      prices = product.order_items.pluck(:unit_price)
-      ema = calculate_ema(prices, 10) # Replace 10 with your desired EMA period
+      amount = product.order_items.pluck(:quantity)
+      ema = calculate_ema(amount, 10) # Replace 10 with your desired EMA period
 
       overall = product.price * ema
 
-      information = product.brand.description
+      information = product.brand.title
       result << { product: product.title, original_price: product.price, ema: ema, overall: overall,
                   information: information }
+
+      if current_order.persisted?
+        if ema != 0
+          if current_order.order_items.find_by(product_id: product.id)
+            order_item = current_order.order_items.find_by(product_id: product.id)
+            order_item.quantity = ema
+            order_item.save
+          else
+            current_order.order_items.create(product: product, quantity: ema)
+          end
+        end
+      else
+        current_order.save
+        current_order.order_items.create(product: product, quantity: ema) if ema != 0
+      end
     end
 
     pdf = generate_pdf(result)
-    send_data pdf.render, filename: 'analysis_report.pdf', type: 'application/pdf', disposition: 'inline'
+    send_data pdf.render, filename: 'analysis_report_.pdf', type: 'application/pdf', disposition: 'inline'
+  end
+
+  def create_items_in_cart
+    selected_product_ids = params[:product_ids] || []
+    products = Product.where(id: selected_product_ids)
+
+    products.each do |product|
+      if current_order.order_items.find_by(product_id: product.id)
+        order_item = current_order.order_items.find_by(product_id: product.id)
+        order_item.quantity =
+        order_item.save
+      else
+        current_order.order_items.create(product: product, quantity: 1)
+      end
+    end
+
+    redirect_to cart_path, notice: t('cart.cart_updated')
   end
 
   private
 
-  def calculate_ema(prices, period)
+  def calculate_ema(counts, period)
+    return 0 if counts.empty?
     alpha = 2.0 / (period + 1)
-    narray_prices = Numo::DFloat.cast(prices)
+    narray_prices = Numo::DFloat.cast(counts)
     ema_values = Numo::NMath.exp(Numo::NMath.log(narray_prices).cumsum * alpha)
-    ema_values[-1].round(1)
+    ema_values[-1].round(0)
   end
 
   def generate_pdf(result)
@@ -92,7 +125,7 @@ class CartController < ApplicationController
 
     pdf.table(table_data, cell_style: { borders: %i[top bottom left right] })
     pdf.text ' '
-    pdf.text t('cart.table.total_price') + ": #{total_price} BYN"
+    pdf.text t('cart.table.total_price') + ": #{total_price.round(2)} BYN"
     pdf.text t('cart.table.manager') + ": #{current_user.email}"
     pdf
   end
@@ -105,10 +138,7 @@ class CartController < ApplicationController
 
   def display_product_chart
     popular_products = popular_products_with_names
-
     data = popular_products.map { |product_id, count| [Product.find_by(id: product_id).title, count] }
-
-    # Здесь используется метод column_chart из библиотеки Chartkick для отображения столбчатой диаграммы продуктов.
     column_chart(data, xtitle: 'Product', ytitle: 'Sales Count')
   end
 end
