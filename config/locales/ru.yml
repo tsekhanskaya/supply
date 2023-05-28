@@ -1,8 +1,11 @@
 ru:
-  submit: "Подтвердить"
+  submit: "Сохранить"
   edit: "Изменить"
   destroy: "Удалить"
   error: "запрет на сохранение этого продукта"
+  back: "Назад"
+  send: "Отправить"
+  update: 'Данные обновлены'
   include:
     main: "Главная"
     products: "Продукты"
@@ -16,6 +19,7 @@ ru:
     login: "Авторизоваться"
     sign_up: "Зарегистрироваться"
     sign_out: "Выйти"
+    recs: "Рекомендация поставки"
 
   forms:
     submit: "Отправить"
@@ -37,3 +41,53 @@ ru:
     new_product: "Добавить новый продукт"
     error: "поэтому поставлен запрет на сохранение этого продукта"
     new_product_header: "Новый продукт"
+    create: 'Продукт успешно создан.'
+    destroy: 'Продукт успешно удален'
+
+  brands:
+    title: "Название поставщика"
+    description: "Описание поставщика"
+    contacts: "Контакты"
+    img: "Картинка"
+    street: "Улица"
+    house: "Дом"
+    city: "Город"
+    state: "Область"
+    country: "Страна"
+    new_brand: "Новый поставщик"
+    create: 'Поставщик успешно создан.'
+    destroy: 'Поставщик успешно удален'
+
+  restaurants:
+    title: "Название ресторана"
+    description: "Описание ресторана"
+    img: "Картинка"
+    street: "Улица"
+    house: "Дом"
+    city: "Город"
+    state: "Область"
+    country: "Страна"
+    new_restaurant: "Новый ресторан"
+    create: 'Ресторан успешно создан.'
+    destroy: 'Ресторан успешно удален'
+
+  cart:
+    shopping_cart: "Корзина на поставку"
+    summary: "Сумма заказа"
+    no_products: "Здесь нет продуктов..."
+    total_price: "Итоговая цена"
+    confirm_order: "Подтвердить заказ"
+    item:
+      one: "%{count} товар"
+      few: "%{count} товара"
+      many: "%{count} товаров"
+      other: "%{count} товаров"
+    table:
+      product: "Продукт"
+      original_price: "Цена"
+      ema: "Количество"
+      overall: "Сумма товара"
+      contacts: "Контакты поставщика"
+      total_price: "Итоговая сумма"
+      manager: "Менеджер поставки"
+

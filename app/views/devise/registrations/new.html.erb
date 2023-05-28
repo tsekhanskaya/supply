@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-grid gap-2 col-3 mx-auto mb-3">
-    <h2 class="text-center">Sign up</h2>
+    <h2 class="text-center"><%= t('devise.registrations.new.sign_up') %></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -24,7 +24,7 @@
       </div>
 
       <div class="actions mb-3">
-        <%= f.submit "Sign up", :class => 'btn btn-outline-dark' %>
+        <%= f.submit t('devise.registrations.new.sign_up'), :class => 'btn btn-outline-dark' %>
       </div>
     <% end %>
 

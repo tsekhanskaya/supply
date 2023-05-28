@@ -1,5 +1,5 @@
 <div class="d-grid gap-2 col-3 mx-auto mb-3">
-      <h2 class="text-center">Log in</h2>
+      <h2 class="text-center"><%= t('devise.log_in') %></h2>
       <div class="row">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field mb-3">
@@ -20,7 +20,7 @@
         <% end %>
 
         <div class="actions mb-3">
-          <%= f.submit "Log in", :class => 'btn btn-outline-dark'%>
+          <%= f.submit t('devise.log_in'), :class => 'btn btn-outline-dark'%>
         </div>
       <% end %>
       </div>

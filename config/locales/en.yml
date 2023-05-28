@@ -2,6 +2,9 @@ en:
   submit: "Submit"
   edit: "Edit"
   destroy: "Destroy"
+  back: "Back"
+  send: "Send"
+  update: 'Data updated'
   include:
     main: "Main"
     products: "Products"
@@ -15,6 +18,7 @@ en:
     login: "Log in"
     sign_up: "Sign up"
     sign_out: "Sign out"
+    recs: "Recommendation"
 
   forms:
     submit: "Submit"
@@ -36,3 +40,53 @@ en:
     new_product: "Add new product"
     error: "prohibited this product from being saved"
     new_product_header: "New product"
+    create: 'Product was successfully created.'
+    destroy: 'Product was successfully destroyed.'
+
+  brands:
+    title: "Title"
+    description: "Description"
+    contacts: "Contacts"
+    img: "Image"
+    street: "Street"
+    house: "House"
+    city: "City"
+    state: "State"
+    country: "Country"
+    new_brand: "New brand"
+    create: 'Brand was successfully created.'
+    destroy: 'Brand was successfully destroyed.'
+
+  restaurants:
+    title: "Title"
+    description: "Description"
+    img: "Image"
+    street: "Street"
+    house: "House"
+    city: "City"
+    state: "State"
+    country: "Country"
+    new_restaurant: "New restaurant"
+    create: 'Restaurant was successfully created.'
+    destroy: 'Restaurant was successfully destroyed.'
+
+  cart:
+    shopping_cart: "Shopping Cart"
+    summary: "Summary"
+    no_products: "There is no products..."
+    total_price: "Total price"
+    confirm_order: "Conform Order"
+    item:
+      few: "%{count} item"
+      many: "%{count} items"
+      one: "%{count} item"
+      other: "%{count} items"
+    table:
+      product: "Product"
+      original_price: "Original Price"
+      ema: "Count"
+      overall: "Overall"
+      contacts: "Contacts"
+      total_price: "Total price"
+      manager: "Manager of supply"
+

@@ -2,20 +2,11 @@
 
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show edit update destroy]
-  # before_action :current_restaurant, only: :index
 
   # GET /restaurants
   def index
     @restaurants = Restaurant.all
   end
-
-  # def current_restaurant
-  #   @restaurants = if !current_user.user_restaurant?
-  #                    Restaurant.all
-  #                  else
-  #                    Restaurant.where(user_id: current_user.id)
-  #                  end
-  # end
 
   # GET /restaurants/1
   def show; end
@@ -40,7 +31,7 @@ class RestaurantsController < ApplicationController
     @restaurant.user_id = current_user.id
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to restaurant_url(@restaurant), notice: 'Restaurant was successfully created.' }
+        format.html { redirect_to restaurant_url(@restaurant), notice: t('restaurants.create') }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -51,7 +42,7 @@ class RestaurantsController < ApplicationController
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to restaurant_url(@restaurant), notice: 'Restaurant was successfully updated.' }
+        format.html { redirect_to restaurant_url(@restaurant), notice: t('update') }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -63,7 +54,7 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
 
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      format.html { redirect_to restaurants_url, notice: t('restaurants.destroy') }
     end
   end
 

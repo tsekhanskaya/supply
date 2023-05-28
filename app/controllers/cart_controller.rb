@@ -73,7 +73,10 @@ class CartController < ApplicationController
       }
     )
     pdf.font 'CyrillicFont'
-    table_data = [['Product', 'Original Price', 'EMA', 'Overall', 'Information']]
+    current_time = Time.now
+    formatted_time = current_time.strftime("%d.%m.%Y %H:%M")
+    pdf.text "#{formatted_time}"
+    table_data = [[t('cart.table.product'), t('cart.table.original_price'),t('cart.table.ema'), t('cart.table.overall'), t('cart.table.contacts')]]
 
     total_price = 0
 
@@ -89,8 +92,8 @@ class CartController < ApplicationController
 
     pdf.table(table_data, cell_style: { borders: %i[top bottom left right] })
     pdf.text ' '
-    pdf.text "Total price: #{total_price}"
-    pdf.text "Manager of supply: #{current_user.email}"
+    pdf.text t('cart.table.total_price') + ": #{total_price} BYN"
+    pdf.text t('cart.table.manager') + ": #{current_user.email}"
     pdf
   end
 
@@ -98,8 +101,6 @@ class CartController < ApplicationController
     OrderItem.joins(:product).group(:product_id, 'products.title')
              .order('COUNT(order_items.product_id) DESC').limit(5)
              .count('order_items.product_id')
-
-    # Возвращаем результат в виде хэша, где ключами являются названия продуктов, а значениями - количество заказов.
   end
 
   def display_product_chart

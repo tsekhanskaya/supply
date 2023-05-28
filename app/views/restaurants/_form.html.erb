@@ -12,49 +12,49 @@
     <% end %>
 
     <div class="form-group mb-3">
-      <%= form.label :title, style: "display: block", :class => "form-label" %>
+      <%= form.label t('restaurants.title'), style: "display: block", :class => "form-label" %>
       <%= form.text_field :title, :placeholder => :title, :class => "form-control" %>
     </div>
 
     <div class="mb-3">
-      <%= form.label :description, style: "display: block", :class => "form-label" %>
+      <%= form.label t('restaurants.description'), style: "display: block", :class => "form-label" %>
       <%= form.text_area :description, :class => "form-control", :placeholder => :description %>
     </div>
 
     <div class="row">
       <div class="col mb-3">
-        <%= form.label :street, style: "display: block", :class => "form-label" %>
+        <%= form.label t('restaurants.street'), style: "display: block", :class => "form-label" %>
         <%= form.text_field :street, :class => "form-control", :placeholder => :street %>
       </div>
 
       <div class="col mb-3">
-        <%= form.label :house, style: "display: block", :class => "form-label" %>
+        <%= form.label t('restaurants.house'), style: "display: block", :class => "form-label" %>
         <%= form.text_field :house, :class => "form-control", :placeholder => :house %>
       </div>
 
       <div class="col mb-3">
-        <%= form.label :city, style: "display: block", :class => "form-label" %>
+        <%= form.label t('restaurants.city'), style: "display: block", :class => "form-label" %>
         <%= form.text_field :city, :class => "form-control", :placeholder => :city %>
       </div>
     </div>
 
     <div class="row">
       <div class="col mb-3">
-        <%= form.label :state, style: "display: block", :class => "form-label" %>
+        <%= form.label t('restaurants.state'), style: "display: block", :class => "form-label" %>
         <%= form.text_field :state, :class => "form-control", :placeholder => :state %>
       </div>
 
       <div class="col mb-3">
-        <%= form.label :country, style: "display: block", :class => "form-label" %>
+        <%= form.label t('restaurants.country'), style: "display: block", :class => "form-label" %>
         <%= form.text_field :country, :class => "form-control", :placeholder => :country %>
       </div>
     </div>
 
     <div class="col mb-3">
-      <%= form.label :img, style: "display: block", :class => "form-label" %>
+      <%= form.label t('restaurants.img'), style: "display: block", :class => "form-label" %>
       <%= form.file_field :img, :class => "form-control" %>
     </div>
 
-    <%= form.submit :class => "btn btn-outline-dark" %>
+    <%= form.submit t('submit'), :class => "btn btn-outline-dark" %>
   </div>
 <% end %>

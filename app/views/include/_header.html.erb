@@ -10,8 +10,6 @@
 
       <a class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false"><%= t('include.language')%></a>
       <ul class="dropdown-menu">
-<!--        <li><%#= link_to 'English', root_path(locale: :en), :class => 'dropdown-item' %></li>-->
-<!--        <li><%#= link_to 'Русский', root_path(locale: :ru), :class => 'dropdown-item' %></li>-->
           <li><%= link_to 'English', "#{request.path}?#{request.query_parameters.merge(locale: :en).to_param}", class: 'dropdown-item' %></li>
           <li><%= link_to 'Русский', "#{request.path}?#{request.query_parameters.merge(locale: :ru).to_param}", class: 'dropdown-item' %></li>
       </ul>
@@ -24,20 +22,14 @@
               <%= link_to t("include.edit_account"), edit_user_registration_path, :class => 'dropdown-item' %>
             </li>
             <li>
-              <%= link_to "Recommentation", 'cart/recs', :class => 'dropdown-item' %>
+              <%= link_to t('include.recs'), '/cart/recs', :class => 'dropdown-item' %>
             </li>
-            <% if can? :users_managing, User %>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <%= link_to t("include.manager"),admin_manage_for_users_path, :class => 'dropdown-item' %>
-              </li>
-            <% end %>
           </ul>
           <%= link_to t("include.cart"), cart_path, :class => 'btn btn-warning text-black mx-1' %>
             <%= link_to t("include.sign_out"), destroy_user_session_path, method: :delete, :class => "btn btn-outline-light mx-1" %>
           <% else %>
             <%= link_to t("include.sign_up"), new_user_registration_path, :class => 'btn btn-warning text-black mx-1'  %>
-            <%= link_to t("include.login"), new_user_session_path, :class => 'btn btn-outline-light mx-1'%>
+            <%= link_to t("devise.sessions.new.sign_in"), new_user_session_path, :class => 'btn btn-outline-light mx-1'%>
           <% end %>
       </div>
     </div>
