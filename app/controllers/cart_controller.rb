@@ -7,9 +7,19 @@ require 'chartkick'
 
 class CartController < ApplicationController
   def recs
-    @products = Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
+    # @products = Product.all
+    @categories = Category.all
     popular_products = popular_products_with_names
     @data = popular_products.map { |product_id, count| [Product.find_by(id: product_id).title, count] }
+
+    # Применить фильтрацию по категории, если выбрана
+    if params[:category_id].present?
+      category_id = params[:category_id].to_i
+      @products = @products.where(category_id: category_id)
+    end
+    session[:selected_product_ids] = params[:product_ids] || []
   end
 
   def show

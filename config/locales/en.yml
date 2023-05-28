@@ -96,5 +96,7 @@ en:
     cart_updated: "Cart updated"
     cart_empty: 'Cart is empty.'
     delivery_datetime: 'Delivery datetime'
+    apply_filter: "Apply Filter"
+    analyze: "Analyze"
 
 

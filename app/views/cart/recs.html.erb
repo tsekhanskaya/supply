@@ -14,12 +14,15 @@
                   <%= form_with(url: analyze_path, method: :post) do |form| %>
                     <% @products.each do |product| %>
                       <div>
-                        <%= form.check_box :product_ids, { multiple: true }, product.id, nil %>
+                        <%= form.check_box :product_ids,
+                                           { multiple: true },
+                                           product.id, id: "product_ids_#{product.id}",
+                                           checked: session[:selected_product_ids].include?(product.id.to_s) %>
                         <%= form.label "product_ids_#{product.id}", product.title %>
                       </div>
                     <% end %>
                     <hr class="my-4">
-                    <%= form.submit 'Analyze', :class => 'btn btn-dark btn-block mb-3' %>
+                    <%= form.submit t('cart.analyze'), class: 'btn btn-dark btn-block mb-3' %>
                   <% end %>
                   <div class="pt-5">
                     <div class="fs-8 mb-3">
@@ -34,6 +37,15 @@
               <div class="col-lg-4 bg-grey">
                 <div class="p-5">
                   <h3 class="fw-bold mb-5 mt-2 pt-1"><%= t('cart.statistic') %></h3>
+                  <hr class="my-4">
+                  <%= form_with(url: { action: :recs }, method: :get) do |form| %>
+                    <div class="my-4">
+                      <%= form.label :category_id, t('products.category') %>
+                      <%= form.select :category_id, options_from_collection_for_select(@categories, :id, :name, params[:category_id]), include_blank: true %>
+                    </div>
+
+                    <%= form.submit t('cart.apply_filter'), class: 'btn btn-dark btn-block mb-3' %>
+                  <% end %>
                   <hr class="my-4">
                   <div class="d-flex justify-content-between mb-5">
                     <%= pie_chart @data, title: t('cart.top_products') %>

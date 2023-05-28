@@ -97,3 +97,5 @@ ru:
     cart_updated: "Корзина обновлена"
     cart_empty: 'Корзина пуста.'
     delivery_datetime: "Дата доставки"
+    apply_filter: "Применить фильтр"
+    analyze: "Анализ"
