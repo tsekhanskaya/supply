@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
+    @search_results = @q.result(distinct: true)
+    @products = @search_results.paginate(page: params[:page], per_page: 18)
     @order_items = current_order.order_items.new
   end
 

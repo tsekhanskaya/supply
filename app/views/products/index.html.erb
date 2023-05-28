@@ -66,6 +66,9 @@
               </div>
             <% end %>
           </div>
+          <div class="digg_pagination pt-3">
+            <%= will_paginate @products, :container => false%>
+          </div>
         </div>
       <% end %>
       </div>
