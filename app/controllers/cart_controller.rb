@@ -58,7 +58,7 @@ class CartController < ApplicationController
 
       overall = product.price * ema
 
-      information = product.brand.title
+      information = "#{product.brand.title}, #{product.brand.contacts}"
       result << { product: product.title, original_price: product.price, ema: ema, overall: overall,
                   information: information }
 

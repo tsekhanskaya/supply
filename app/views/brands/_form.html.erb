@@ -26,6 +26,11 @@
       <%= form.text_area :description, :placeholder => :description, :class => "form-control"%>
     </div>
 
+    <div class="mb-3">
+      <%= form.label t('brands.contacts'), style: "display: block", :class => "form-label" %>
+      <%= form.text_area :contacts, :placeholder => :description, :class => "form-control"%>
+    </div>
+
     <div class="row">
       <div class="col mb-3">
         <%= form.label t('brands.street'), style: "display: block", :class => "form-label" %>
