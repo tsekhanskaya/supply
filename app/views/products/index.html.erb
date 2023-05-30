@@ -4,28 +4,29 @@
       <div style="text-align:center">
         <hr class="mt-0">
         <% if can? :create, Product  %>
-          <% if @products.empty? %>
-            <p>Результат поиска отрицательный. Создайте продукт</p>
-          <% end %>
           <%= link_to t('products.new_product'), new_product_path %>
         <% else %>
           <h5 class="card-title text-center"><%= t('include.products') %></h5>
         <% end %>
         <hr>
       </div>
-      <%= render "search_form", products: @products %>
-      <% if @products.empty? %>
-        <h3>There's no products...</h3>
-      <% else %>
-        <div class="d-grid gap-2 col-5 mx-auto">
-          <div class="row mb-3">
-            <div class="col"><%= t('sort') %></div>
-            <div class="col"><%= sort_link(@q, :title, t("products.title"), default_order: :desc) %></div>
-            <div class="col"><%= sort_link(@q, :price, t("products.price"), default_order: :desc) %></div>
-<!--            <div class="col"><%#= sort_link(@q, :brand_title, t("products.brand"), default_order: :asc) %></div>-->
-
+      <%= form_tag products_url, method: :get do %>
+        <div class="row mb-3">
+          <div class="col col-9">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("forms.search") %>
+          </div>
+          <div class="col">
+        <%= submit_tag t('forms.submit'), name: nil, class: 'btn btn-outline-dark' %>
+          </div>
+          <div class="col text-center pt-1">
+          <%= link_to t("products.title"), products_path(sort: 'title', direction: toggle_direction('title')) %>
+          </div>
+          <div class="col text-center pt-1">
+          <%= link_to t("products.price"), products_path(sort: 'price', direction: toggle_direction('price')) %>
           </div>
         </div>
+      <% end %>
+      <% if @products %>
         <div style="text-align:center">
           <div class="row row-cols-3 g-3">
             <% @products.each do |product| %>
@@ -67,9 +68,29 @@
             <% end %>
           </div>
           <div class="digg_pagination pt-3">
-            <%= will_paginate @products, :container => false%>
           </div>
         </div>
+      <% end %>
+      <% if @products.total_pages > 1 %>
+        <nav>
+          <ul class="pagination">
+            <% if @products.current_page > 1 %>
+              <li><%= link_to 'Previous', products_path(page: @products.current_page - 1) %></li>
+            <% end %>
+
+            <% (1..@products.total_pages).each do |page| %>
+              <% if page == @products.current_page %>
+                <li class="active"><%= page %></li>
+              <% else %>
+                <li><%= link_to page, products_path(page: page) %></li>
+              <% end %>
+            <% end %>
+
+            <% if @products.current_page < @products.total_pages %>
+              <li><%= link_to 'Next', products_path(page: @products.current_page + 1) %></li>
+            <% end %>
+          </ul>
+        </nav>
       <% end %>
       </div>
     </div>

@@ -13,11 +13,11 @@
     <div class="row mb-3">
       <div class="col">
         <%= form.label t('products.category'), style: "display: block", :class => "form-label"%>
-        <%= form.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, :class => "form-select" %>
+        <%= form.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, {}, :class => "form-select" %>
       </div>
       <div class="col">
         <%= form.label t('products.brand_id'), style: "display: block", :class => "form-label"%>
-        <%= form.select :brand_id, Brand.all.collect { |p| [ p.title, p.id ] }, :class => "form-select" %>
+        <%= form.select :brand_id, Brand.all.collect { |p| [ p.title, p.id ] }, {}, :class => "form-select" %>
       </div>
     </div>
 

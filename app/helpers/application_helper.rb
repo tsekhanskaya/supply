@@ -10,4 +10,12 @@ module ApplicationHelper
       @current_products = Product.where(brand_id: Brand.find(user_id: current_user.id))
     end
   end
+
+  def toggle_direction(attribute)
+    if params[:sort] == attribute && params[:direction] == 'asc'
+      'desc'
+    else
+      'asc'
+    end
+  end
 end

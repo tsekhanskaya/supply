@@ -5,9 +5,12 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @q = Product.ransack(params[:q])
-    @search_results = @q.result(distinct: true)
-    @products = @search_results.paginate(page: params[:page], per_page: 18)
+    sort_attribute = params[:sort] || 'title' # Default sorting attribute is 'name'
+    sort_direction = params[:direction]&.in?(%w[asc desc]) ? params[:direction] : 'asc' # Default sorting direction is ascending if invalid direction is provided
+    @products = Product.all
+    @products = @products.where('title LIKE ?', "%#{params[:search].capitalize}%") if params[:search].present?
+    @products = @products.order("#{sort_attribute} #{sort_direction}")
+    @products = @products.page(params[:page]).per(18)
     @order_items = current_order.order_items.new
   end
 

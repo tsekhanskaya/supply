@@ -17,6 +17,7 @@ gem 'faker'
 gem 'importmap-rails'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'jbuilder'
+gem 'kaminari'
 gem 'numo-narray'
 gem 'pg', '~> 1.1'
 gem 'prawn'
@@ -33,7 +34,6 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'will_paginate'
 
 gem 'image_processing'
 

@@ -24,6 +24,10 @@
             <li>
               <%= link_to t('include.recs'), '/cart/recs', :class => 'dropdown-item' %>
             </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <%=link_to t('include.admin'), admin_user_session_path, :class => 'dropdown-item' %>
+            </li>
           </ul>
           <%= link_to t("include.cart"), cart_path, :class => 'btn btn-warning text-black mx-1' %>
             <%= link_to t("include.sign_out"), destroy_user_session_path, method: :delete, :class => "btn btn-outline-light mx-1" %>

@@ -7,9 +7,7 @@ require 'chartkick'
 
 class CartController < ApplicationController
   def recs
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-    # @products = Product.all
+    @products = Product.all
     @categories = Category.all
     popular_products = popular_products_with_names
     @data = popular_products.map { |product_id, count| [Product.find_by(id: product_id).title, count] }

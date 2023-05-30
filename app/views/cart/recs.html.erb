@@ -41,9 +41,8 @@
                   <%= form_with(url: { action: :recs }, method: :get) do |form| %>
                     <div class="my-4">
                       <%= form.label :category_id, t('products.category') %>
-                      <%= form.select :category_id, options_from_collection_for_select(@categories, :id, :name, params[:category_id]), include_blank: true %>
+                      <%= form.select :category_id, options_from_collection_for_select(@categories, :id, :name, params[:category_id]), include_blank: true, class: "select-form" %>
                     </div>
-
                     <%= form.submit t('cart.apply_filter'), class: 'btn btn-dark btn-block mb-3' %>
                   <% end %>
                   <hr class="my-4">
